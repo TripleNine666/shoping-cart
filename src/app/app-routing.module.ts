@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
   { path: 'shop', component: ShopComponent },
   { path: 'cart', component: ShopComponent },
-  { path: 'detail/:key', component: ShopComponent },
+  { path: 'detail/:id', component: ShopComponent },
   { path: 'login', component: ShopComponent },
   { path: 'history', component: ShopComponent },
   { path: 'contacts', component: ShopComponent },

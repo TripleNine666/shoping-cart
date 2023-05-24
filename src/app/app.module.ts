@@ -12,12 +12,15 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./in-memory-data.service";
 
 import { ShopComponent } from './components/shop/shop.component';
+import { HeaderComponent } from './components/UI/header/header.component';
+import {RippleModule} from "primeng/ripple";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShopComponent
+    ShopComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { ShopComponent } from './components/shop/shop.component';
       dataEncapsulation: false,
       passThruUnknownUrl: true
     }),
+    RippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,9 @@ import {ButtonModule} from "primeng/button";
 import {CheckboxModule} from "primeng/checkbox";
 import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
+import { ToolbarModule } from 'primeng/toolbar';
+import { DataViewModule } from 'primeng/dataview';
+
 
 
 
@@ -15,12 +18,16 @@ import {RippleModule} from "primeng/ripple";
     ButtonModule,
     CheckboxModule,
     InputTextModule,
-    RippleModule
+    RippleModule,
+    ToolbarModule,
+    DataViewModule,
   ],
   exports: [
     ButtonModule,
     CheckboxModule,
     InputTextModule,
+    ToolbarModule,
+    DataViewModule,
   ]
 })
 export class PrimengModule { }

@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~primeng/resources/themes/dark-blue/theme.css';
-@import "~primeng/resources/primeng.css";
-@import "~primeicons/primeicons.css";
+html {
+  height: 100%;
+}
 
 body, body .p-component {
+  height: 100%;
   font-family: var(--font-family);
+  margin: 0;
 }
