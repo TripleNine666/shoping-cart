@@ -2,13 +2,16 @@
 <div class="list-item-container">
   <p-dataView [value]="products" layout="grid" [rows]="12">
     <ng-template let-product pTemplate="gridItem">
-      <div class="product-item flex-column justify-content-center">
+      <div class="product-item">
         <div class="img-container">
           <div class="background"></div>
           <img src="{{product.img}}" alt="{{product.name}}">
         </div>
-        <div class="product-name">{{product.name}}</div>
-        <div class="product-price">{{product.price | currency}}</div>
+        <div class="product-info">
+          <div class="product-name">{{product.name}}</div>
+          <div class="product-size">Size: {{product.size}}</div>
+          <div class="product-price">{{product.price | currency}}</div>
+        </div>
       </div>
     </ng-template>
   </p-dataView>

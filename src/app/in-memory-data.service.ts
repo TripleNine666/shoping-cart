@@ -17,13 +17,15 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[1],
         price: 10,
         img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG132.png',
+        size: '100 cl / 1L',
       },
       {
         id: 2,
-        name: 'Жигуль',
+        name: 'Коньяк',
         category: CATEGORY[1],
         price: 5,
         img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG122.png',
+        size: '50 cl / 500ml',
       },
       {
         id: 3,
@@ -31,6 +33,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 15,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 4,
@@ -38,6 +41,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 15,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 5,
@@ -45,6 +49,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 20,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 6,
@@ -52,6 +57,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[1],
         price: 10,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 7,
@@ -59,6 +65,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[1],
         price: 5,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 8,
@@ -66,6 +73,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 15,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 9,
@@ -73,6 +81,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 15,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
       {
         id: 10,
@@ -80,6 +89,7 @@ export class InMemoryDataService implements InMemoryDbService{
         category: CATEGORY[0],
         price: 20,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
       },
     ]
     return { products };

@@ -1,6 +1,10 @@
 /* Стили для header */
+.header-container {
+  height: 100px;
+}
+
 :host::ng-deep .p-toolbar {
-  background-color: #fdf8f4;
+  background-color: #fbf3ec;
 }
 
 :host::ng-deep .p-toolbar .p-toolbar-group-left {

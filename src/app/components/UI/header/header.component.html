@@ -1,24 +1,25 @@
 <!-- Шаблон для header -->
-<p-toolbar>
-  <div class="p-toolbar-group-left">
-    <ng-container *ngIf="false; else guestTemplate">
-      <img src="#" alt="#" class="user-icon">
-      <span>
-       <span class="hello">Hello</span><br>
-       <span class="user-name">#</span>
-     </span>
-    </ng-container>
-    <ng-template #guestTemplate>
-     <span class="guest-header">
-       <span class="hello">Hello</span><br>
-       <span class="user-name">Guest</span>
-     </span>
-      <button pButton pRipple type="button" label="Log In" ></button>
-    </ng-template>
-  </div>
-  <div class="p-toolbar-group-right">
-    <button pButton pRipple type="button" icon="pi pi-bars" class="menu-button" ></button>
-  </div>
-</p-toolbar>
-
+<div class="header-container">
+  <p-toolbar>
+    <div class="p-toolbar-group-left">
+      <ng-container *ngIf="false; else guestTemplate">
+        <img src="#" alt="#" class="user-icon">
+        <span>
+         <span class="hello">Hello</span><br>
+         <span class="user-name">#</span>
+       </span>
+      </ng-container>
+      <ng-template #guestTemplate>
+       <span class="guest-header">
+         <span class="hello">Hello</span><br>
+         <span class="user-name">Guest</span>
+       </span>
+        <button pButton pRipple type="button" label="Log In" ></button>
+      </ng-template>
+    </div>
+    <div class="p-toolbar-group-right">
+      <p-button icon="pi pi-align-right" styleClass="p-button-rounded p-button-text" class="menu-button"></p-button>
+    </div>
+  </p-toolbar>
+</div>
 <!-- Menu template -->
