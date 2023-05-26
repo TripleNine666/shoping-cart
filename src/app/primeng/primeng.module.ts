@@ -6,6 +6,10 @@ import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
 import { ToolbarModule } from 'primeng/toolbar';
 import { DataViewModule } from 'primeng/dataview';
+import { TabViewModule } from 'primeng/tabview';
+import { ChipModule } from 'primeng/chip';
+
+
 
 
 
@@ -21,6 +25,8 @@ import { DataViewModule } from 'primeng/dataview';
     RippleModule,
     ToolbarModule,
     DataViewModule,
+    TabViewModule,
+    ChipModule,
   ],
   exports: [
     ButtonModule,
@@ -28,6 +34,8 @@ import { DataViewModule } from 'primeng/dataview';
     InputTextModule,
     ToolbarModule,
     DataViewModule,
+    TabViewModule,
+    ChipModule,
   ]
 })
 export class PrimengModule { }

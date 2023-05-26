@@ -7,6 +7,51 @@
   background-color: inherit;
 }
 
+/* Categories BLOCK */
+
+::ng-deep .p-tabview-nav-content {
+  margin-left: 10px;
+}
+
+::ng-deep .p-tabview-nav-container button {
+  display: none;
+}
+
+::ng-deep .p-tabview .p-tabview-nav {
+  background-color: inherit;
+  border: none;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background-color: inherit;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:focus {
+  background-color: #fbf3ec;
+}
+
+::ng-deep .p-tabview .p-tabview-nav .p-tabview-ink-bar {
+  display: none;
+}
+
+::ng-deep .p-tabview-panels {
+  display: none;
+}
+
+::ng-deep .p-highlight .p-chip {
+  background-color: #021374;
+  color: white;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+
+  background: transparent;
+  border: none;
+}
+
+
+/* END Categories BLOCK */
+
 .product-item {
   display: flex;
   flex-direction: column;

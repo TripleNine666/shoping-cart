@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ShopService } from "./shop.service";
 import { Product } from "../../interfaces/product";
+// import { TabChangeEvent } from 'primeng/tabview'
+import { CATEGORY } from "../../static-data";
 
 @Component({
   selector: 'app-shop',
@@ -10,13 +12,24 @@ import { Product } from "../../interfaces/product";
 export class ShopComponent {
   constructor(private shopService: ShopService) {
   }
-  products: Product[] = []
+  products: Product[] = [];
+  filteredProducts: Product[] = [];
+  categories = CATEGORY;
 
   ngOnInit() {
     this.getProducts();
   }
 
+  filterProducts(event: any) {
+    console.log(event)
+    let category = this.categories[event.index];
+    this.filteredProducts = this.products.filter(p => p.category === category);
+  }
+
   getProducts() {
-    this.shopService.getProducts().subscribe(products => this.products = products)
+    this.shopService.getProducts().subscribe(products => {
+      this.products = products
+      this.filteredProducts = products;
+    })
   }
 }

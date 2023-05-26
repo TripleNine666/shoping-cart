@@ -1,20 +1,28 @@
 <app-header></app-header>
 <div class="list-item-container">
-  <p-dataView [value]="products" layout="grid" [rows]="12">
-    <ng-template let-product pTemplate="gridItem">
-      <div class="product-item">
-        <div class="img-container">
-          <div class="background"></div>
-          <img src="{{product.img}}" alt="{{product.name}}">
-        </div>
-        <div class="product-info">
-          <div class="product-name">{{product.name}}</div>
-          <div class="product-size">Size: {{product.size}}</div>
-          <div class="product-price">{{product.price | currency}}</div>
-        </div>
-      </div>
-    </ng-template>
-  </p-dataView>
+  <p-tabView [scrollable]="true" (onChange)="filterProducts($event)">
+    <p-tabPanel *ngFor="let category of categories" [header]="category" [tooltip]="category">
+      <ng-template pTemplate="header">
+        <p-chip label="{{category}}" icon="pi pi-tag"></p-chip>
+      </ng-template>
+    </p-tabPanel>
+  </p-tabView>
+      <p-dataView [value]="filteredProducts" layout="grid" [rows]="12">
+        <ng-template let-product pTemplate="gridItem">
+          <div class="product-item">
+            <div class="img-container">
+              <div class="background"></div>
+              <img src="{{product.img}}" alt="{{product.name}}">
+            </div>
+            <div class="product-info">
+              <div class="product-name">{{product.name}}</div>
+              <div class="product-size">Size: {{product.size}}</div>
+              <div class="product-price">{{product.price | currency}}</div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+
 </div>
 
 
