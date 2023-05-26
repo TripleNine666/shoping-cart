@@ -10,8 +10,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class DetailsComponent implements OnInit {
   constructor(private shopService:ShopService, private route: ActivatedRoute) {
-
   }
+  counterValue: number = 1;
   product?: Product;
 
   ngOnInit() {

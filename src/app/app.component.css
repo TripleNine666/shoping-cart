@@ -1,3 +1,6 @@
+.main-page-container {
+  background-color: #fbf3ec;
+}
 
 :host {
   display: flex;

@@ -1,18 +1,27 @@
-<app-header-details></app-header-details>
-<div *ngIf="product" class="product-detail-container">
-  <div class="img-container">
-    <div class="background"></div>
-    <img src="{{product.img}}" alt="{{product.name}}">
-  </div>
-  <div class="product-info">
-    <div class="product-name">{{product.name}}</div>
-    <div class="product-size">Size: {{product.size}}</div>
-  </div>
-  <div class="description-divider">
-    <p-divider></p-divider>
-  </div>
-  <div class="description">
-    <h2>Product Description</h2>
-    <p>#</p>
+<div class="product-detail">
+  <app-header-details></app-header-details>
+  <div *ngIf="product" class="product-detail-container">
+    <div class="img-container">
+      <div class="background"></div>
+      <img src="{{product.img}}" alt="{{product.name}}">
+    </div>
+    <div class="product-info">
+      <div class="product-name">{{product.name}}</div>
+      <div class="product-size">Size: {{product.size}}</div>
+    </div>
+    <div class="description-divider">
+      <p-divider></p-divider>
+    </div>
+    <div class="description">
+      <h2>Product Description</h2>
+      <p>#</p>
+    </div>
+    <div class="price-panel">
+      <div class="product-price">{{product.price * counterValue | currency}}</div>
+      <div class="price-panel__actions">
+        <app-counter class="counter" color="#d0d0d0" [(value)]="counterValue"></app-counter>
+        <p-button class="price-panel__button" label="Cart" styleClass="p-button-text p-button-lg"></p-button>
+      </div>
+    </div>
   </div>
 </div>

@@ -17,6 +17,7 @@ import {RippleModule} from "primeng/ripple";
 import { DetailsComponent } from './components/details/details.component';
 import { HeaderDetailsComponent } from './components/UI/header-details/header-details.component';
 import { MenuComponent } from './components/UI/menu/menu.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MenuComponent } from './components/UI/menu/menu.component';
     HeaderComponent,
     DetailsComponent,
     HeaderDetailsComponent,
-    MenuComponent
+    MenuComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

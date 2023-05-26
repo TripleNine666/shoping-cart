@@ -1,0 +1,5 @@
+<div class="counter" [ngStyle]="{ borderColor: color }">
+  <button [ngStyle]="{ color: color }" (click)="decrement()" [disabled]="value <= 1">-</button>
+  <span [ngStyle]="{ color: color }">{{ value }}</span>
+  <button [ngStyle]="{ color: color }" (click)="increment()">+</button>
+</div>
