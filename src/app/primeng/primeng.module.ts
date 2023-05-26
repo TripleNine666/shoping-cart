@@ -8,6 +8,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { DataViewModule } from 'primeng/dataview';
 import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
+import { MenuModule } from 'primeng/menu';
+
 
 
 
@@ -27,6 +29,7 @@ import { ChipModule } from 'primeng/chip';
     DataViewModule,
     TabViewModule,
     ChipModule,
+    MenuModule,
   ],
   exports: [
     ButtonModule,
@@ -36,6 +39,7 @@ import { ChipModule } from 'primeng/chip';
     DataViewModule,
     TabViewModule,
     ChipModule,
+    MenuModule,
   ]
 })
 export class PrimengModule { }
