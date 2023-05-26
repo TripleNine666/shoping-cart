@@ -9,7 +9,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { MenuModule } from 'primeng/menu';
-
+import { DividerModule } from 'primeng/divider';
 
 
 
@@ -30,6 +30,7 @@ import { MenuModule } from 'primeng/menu';
     TabViewModule,
     ChipModule,
     MenuModule,
+    DividerModule,
   ],
   exports: [
     ButtonModule,
@@ -40,6 +41,7 @@ import { MenuModule } from 'primeng/menu';
     TabViewModule,
     ChipModule,
     MenuModule,
+    DividerModule,
   ]
 })
 export class PrimengModule { }

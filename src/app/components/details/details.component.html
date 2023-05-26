@@ -1,0 +1,18 @@
+<app-header-details></app-header-details>
+<div *ngIf="product" class="product-detail-container">
+  <div class="img-container">
+    <div class="background"></div>
+    <img src="{{product.img}}" alt="{{product.name}}">
+  </div>
+  <div class="product-info">
+    <div class="product-name">{{product.name}}</div>
+    <div class="product-size">Size: {{product.size}}</div>
+  </div>
+  <div class="description-divider">
+    <p-divider></p-divider>
+  </div>
+  <div class="description">
+    <h2>Product Description</h2>
+    <p>#</p>
+  </div>
+</div>

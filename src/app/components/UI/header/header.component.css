@@ -7,15 +7,6 @@
   background-color: #fbf3ec;
 }
 
-:host::ng-deep .p-toolbar .p-toolbar-group-left {
-  display: flex;
-  align-items: center;
-}
-
-:host::ng-deep .p-toolbar .p-toolbar-group-right {
-  display: flex;
-  align-items: center;
-}
 
 :host::ng-deep .p-toolbar .user-icon {
   width: 40px;
@@ -24,11 +15,7 @@
   margin-right: 10px;
 }
 
-:host::ng-deep .p-toolbar .menu-button {
-  width: 40px;
-  height: 40px;
-  margin-right: 1.5rem;
-}
+
 
 /* Стиль для гостевого header */
 :host::ng-deep .p-toolbar .guest-header {
@@ -45,22 +32,6 @@
 /* Стиль для имени пользователя */
 :host::ng-deep .p-toolbar .user-name {
   font-weight: bold;
-}
-
-.material-symbols-outlined {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
 }
 
 

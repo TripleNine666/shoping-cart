@@ -9,7 +9,7 @@
   </p-tabView>
       <p-dataView [value]="filteredProducts" layout="grid" [rows]="12">
         <ng-template let-product pTemplate="gridItem">
-          <div class="product-item">
+          <div class="product-item" routerLink="/detail/{{product.id}}">
             <div class="img-container">
               <div class="background"></div>
               <img src="{{product.img}}" alt="{{product.name}}">
