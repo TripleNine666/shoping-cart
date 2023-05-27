@@ -22,6 +22,7 @@ import { PricePanelComponent } from './components/price-panel/price-panel.compon
 import { ShoppingCartComponent } from './components/pages/shopping-cart/shopping-cart.component';
 import { HeaderCartComponent } from './components/UI/header-cart/header-cart.component';
 import { ArrowBackComponent } from './components/UI/arrow-back/arrow-back.component';
+import { CartItemComponent } from './components/pages/shopping-cart/cart-item/cart-item.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ArrowBackComponent } from './components/UI/arrow-back/arrow-back.compon
     PricePanelComponent,
     ShoppingCartComponent,
     HeaderCartComponent,
-    ArrowBackComponent
+    ArrowBackComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

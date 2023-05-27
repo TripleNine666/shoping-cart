@@ -18,7 +18,7 @@
     </div>
     <app-price-panel [productPrice]="product.price * counterValue">
       <app-counter class="counter" color="#d0d0d0" [(value)]="counterValue"></app-counter>
-      <p-button class="price-panel__button" label="Cart" styleClass="p-button-text p-button-lg"></p-button>
+      <p-button class="price-panel__button" label="Cart" styleClass="p-button-text p-button-lg" (click)="addToCart()"></p-button>
     </app-price-panel>
   </div>
 </div>

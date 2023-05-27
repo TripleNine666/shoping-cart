@@ -6,3 +6,14 @@
 .shopping-cart-container {
   height: 100%;
 }
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item {
+  margin-bottom: 24px;
+}
