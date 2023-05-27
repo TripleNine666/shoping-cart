@@ -1,6 +1,7 @@
 /* Стили для header */
 .header-container {
   height: 100px;
+  background-color: #fbf3ec;
 }
 
 :host::ng-deep .p-toolbar {

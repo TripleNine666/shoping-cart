@@ -19,6 +19,9 @@ import { HeaderDetailsComponent } from './components/UI/header-details/header-de
 import { MenuComponent } from './components/UI/menu/menu.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { PricePanelComponent } from './components/price-panel/price-panel.component';
+import { ShoppingCartComponent } from './components/pages/shopping-cart/shopping-cart.component';
+import { HeaderCartComponent } from './components/UI/header-cart/header-cart.component';
+import { ArrowBackComponent } from './components/UI/arrow-back/arrow-back.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { PricePanelComponent } from './components/price-panel/price-panel.compon
     HeaderDetailsComponent,
     MenuComponent,
     CounterComponent,
-    PricePanelComponent
+    PricePanelComponent,
+    ShoppingCartComponent,
+    HeaderCartComponent,
+    ArrowBackComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,7 @@
+::ng-deep app-details {
+  background-color: #fbf3ec;
+}
+
 .product-detail {
   background-color: #fbf3ec;
 }

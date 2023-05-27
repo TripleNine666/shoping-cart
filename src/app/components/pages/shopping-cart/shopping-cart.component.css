@@ -1,0 +1,8 @@
+::ng-deep app-shopping-cart {
+  height: 100%;
+  background-color: white;
+}
+
+.shopping-cart-container {
+  height: 100%;
+}

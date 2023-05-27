@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit{
       {
         label: "Shopping Cart",
         icon: "pi pi-shopping-cart",
-        routerLink: ""
+        routerLink: "/cart"
       },
       {
         label: "Orders History",
