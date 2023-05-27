@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShopComponent } from "./components/shop/shop.component";
-import { DetailsComponent } from "./components/details/details.component";
+import { ShopComponent } from "./components/pages/shop/shop.component";
+import { DetailsComponent } from "./components/pages/details/details.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },

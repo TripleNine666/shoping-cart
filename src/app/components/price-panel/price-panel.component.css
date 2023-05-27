@@ -1,0 +1,31 @@
+.price-panel {
+  height: 150px;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #0d0da9, #01014f);
+  border-radius: 40px;
+  position: fixed;
+  bottom: 0;
+
+}
+
+.product-price {
+  font-size: 36px;
+  color: white;
+  margin-left: 32px;
+}
+
+.price-panel__actions{
+  display: flex;
+  margin-right: 32px;
+  align-items: center;
+}
+
+@media (max-width: 649px) {
+  .price-panel{
+    width: 100%;
+    left: 0;
+  }
+}

@@ -11,13 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./in-memory-data.service";
 
-import { ShopComponent } from './components/shop/shop.component';
+import { ShopComponent } from './components/pages/shop/shop.component';
 import { HeaderComponent } from './components/UI/header/header.component';
 import {RippleModule} from "primeng/ripple";
-import { DetailsComponent } from './components/details/details.component';
+import { DetailsComponent } from './components/pages/details/details.component';
 import { HeaderDetailsComponent } from './components/UI/header-details/header-details.component';
 import { MenuComponent } from './components/UI/menu/menu.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { PricePanelComponent } from './components/price-panel/price-panel.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CounterComponent } from './components/counter/counter.component';
     DetailsComponent,
     HeaderDetailsComponent,
     MenuComponent,
-    CounterComponent
+    CounterComponent,
+    PricePanelComponent
   ],
   imports: [
     BrowserModule,

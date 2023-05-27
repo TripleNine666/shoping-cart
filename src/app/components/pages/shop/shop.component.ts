@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ShopService } from "./shop.service";
-import { Product } from "../../interfaces/product";
+import { Product } from "../../../interfaces/product";
 // import { TabChangeEvent } from 'primeng/tabview'
-import { CATEGORY } from "../../static-data";
+import { CATEGORY } from "../../../static-data";
 
 @Component({
   selector: 'app-shop',

@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 600px;
   margin: auto auto 150px;
 }
@@ -96,29 +95,7 @@
 
 /* Price block */
 
-.price-panel {
-  height: 150px;
-  width: 600px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to right, #0d0da9, #01014f);
-  border-radius: 40px;
-  position: fixed;
-  bottom: 0;
-}
 
-.product-price {
-  font-size: 36px;
-  color: white;
-  margin-left: 32px;
-}
-
-.price-panel__actions{
-  display: flex;
-  margin-right: 32px;
-  align-items: center;
-}
 
 .counter {
   margin-right: 64px;
@@ -148,7 +125,5 @@
   .description{
     width: 400px;
   }
-  .price-panel{
-    width: 100%;
-  }
+
 }
