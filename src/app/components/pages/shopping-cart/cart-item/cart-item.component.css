@@ -15,6 +15,7 @@
   border-radius: 20px;
   background-color: #fbf3ec;
   align-items: center;
+  position: relative;
 }
 
 .img-container {
@@ -90,6 +91,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  margin: -12px;
 }
 
 ::ng-deep .delete-item-button button{
