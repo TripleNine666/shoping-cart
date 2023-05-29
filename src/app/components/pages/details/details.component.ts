@@ -32,7 +32,8 @@ export class DetailsComponent implements OnInit {
   addToCart() {
     const item: CartItem = {
       product: this.product as Product,
-      count: this.counterValue
+      count: this.counterValue,
+      isSelected: true,
     };
     this.cartService.addToCart(item);
     this.router.navigate(['/shop']).then();

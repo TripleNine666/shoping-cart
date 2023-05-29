@@ -1,7 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  margin: 0 24px;
+}
+
 .cart-item {
   display: flex;
   height: 170px;
-  width: 600px;
+  width: 500px;
   border-radius: 20px;
   background-color: #fbf3ec;
   align-items: center;
@@ -9,7 +19,7 @@
 
 .img-container {
   display: flex;
-  width: 200px;
+  width: 150px; /* Использован calc() */
   height: 150px;
   overflow: hidden;
   position: relative;
@@ -44,6 +54,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  flex: 1; /* Добавлено свойство flex */
 
 }
 
@@ -86,4 +97,10 @@
   color: white !important;
   width: 32px !important;
   height: 32px !important;
+}
+
+@media (max-width: 649px) {
+ .cart-item {
+ width: 400px;
+ }
 }

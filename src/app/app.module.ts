@@ -23,6 +23,7 @@ import { ShoppingCartComponent } from './components/pages/shopping-cart/shopping
 import { HeaderCartComponent } from './components/UI/header-cart/header-cart.component';
 import { ArrowBackComponent } from './components/UI/arrow-back/arrow-back.component';
 import { CartItemComponent } from './components/pages/shopping-cart/cart-item/cart-item.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -40,18 +41,19 @@ import { CartItemComponent } from './components/pages/shopping-cart/cart-item/ca
     ArrowBackComponent,
     CartItemComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    PrimengModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      passThruUnknownUrl: true
-    }),
-    RippleModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        PrimengModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+            dataEncapsulation: false,
+            passThruUnknownUrl: true
+        }),
+        RippleModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

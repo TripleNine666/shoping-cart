@@ -19,12 +19,16 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   onCountChange(item: CartItem, value: number) {
-    console.log('Родитель: ' + value)
     item.count = value;
     this.cartService.updateCart();
   }
 
   deleteCartItem(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem);
+  }
+
+  onSelectChange(item: CartItem, value: boolean) {
+    item.isSelected = value;
+    this.cartService.updateCart();
   }
 }

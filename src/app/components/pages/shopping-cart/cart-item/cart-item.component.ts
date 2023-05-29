@@ -9,7 +9,13 @@ import { CartItem } from "../../../../interfaces/CartItem";
 export class CartItemComponent {
   @Input() item?: CartItem;
   @Output() countChange = new EventEmitter<number>();
+  @Output() selectChange = new EventEmitter<boolean>();
   @Output() deleteItem = new EventEmitter<CartItem>();
+
+
+  onCheckboxChange() {
+    this.selectChange.emit(this.item?.isSelected);
+  }
 
   onCounterChange(value: number) {
     this.countChange.emit(value)
