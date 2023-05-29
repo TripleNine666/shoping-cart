@@ -13,4 +13,9 @@
       <app-counter class="cart-item__info__actions__counter" color="#021374" [value]="item.count" (valueChange)="onCounterChange($event)"></app-counter>
     </div>
   </div>
+  <p-button class="delete-item-button"
+            icon="pi pi-times"
+            styleClass="p-button-sm p-button-rounded p-button-text"
+            (click)="onDeleteButtonClick()"
+  ></p-button>
 </div>

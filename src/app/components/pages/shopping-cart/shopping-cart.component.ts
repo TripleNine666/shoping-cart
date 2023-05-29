@@ -23,4 +23,8 @@ export class ShoppingCartComponent implements OnInit {
     item.count = value;
     this.cartService.updateCart();
   }
+
+  deleteCartItem(cartItem: CartItem) {
+    this.cartService.removeFromCart(cartItem);
+  }
 }

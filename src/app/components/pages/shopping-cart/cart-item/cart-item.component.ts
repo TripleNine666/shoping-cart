@@ -9,8 +9,13 @@ import { CartItem } from "../../../../interfaces/CartItem";
 export class CartItemComponent {
   @Input() item?: CartItem;
   @Output() countChange = new EventEmitter<number>();
+  @Output() deleteItem = new EventEmitter<CartItem>();
 
   onCounterChange(value: number) {
     this.countChange.emit(value)
+  }
+
+  onDeleteButtonClick() {
+    this.deleteItem.emit(this.item)
   }
 }

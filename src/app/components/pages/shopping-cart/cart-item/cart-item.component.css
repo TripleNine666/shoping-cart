@@ -73,3 +73,17 @@
 .cart-item__info__actions__counter {
   margin-right: 16px;
 }
+
+/* Delete button */
+.delete-item-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+::ng-deep .delete-item-button button{
+  background-color: rgba(128, 128, 128, 0.3) !important;
+  color: white !important;
+  width: 32px !important;
+  height: 32px !important;
+}

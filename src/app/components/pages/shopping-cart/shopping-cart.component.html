@@ -2,7 +2,12 @@
   <app-header-cart></app-header-cart>
 <!--  product list -->
   <div class="cart">
-    <app-cart-item class="cart-item" *ngFor="let item of productsInCart" [item]="item" (countChange)="onCountChange(item, $event)"></app-cart-item>
+    <app-cart-item class="cart-item"
+                   *ngFor="let item of productsInCart"
+                   [item]="item"
+                   (countChange)="onCountChange(item, $event)"
+                   (deleteItem)="deleteCartItem($event)"
+    ></app-cart-item>
   </div>
 <!--  promo Code -->
 <!--  Cost + shipping -->
