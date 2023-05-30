@@ -1,7 +1,8 @@
 <div class="shopping-cart-container">
+  <p-toast></p-toast>
   <app-header-cart></app-header-cart>
 <!--  product list -->
-  <div class="cart">
+  <div class="cart" *ngIf="productsInCart.length>0; else emptyCart">
     <app-cart-item class="cart-item"
                    *ngFor="let item of productsInCart"
                    [item]="item"
@@ -9,12 +10,40 @@
                    (deleteItem)="deleteCartItem($event)"
                    (selectChange)="onSelectChange(item, $event)"
     ></app-cart-item>
-<!--  promo Code -->
-<!--  Cost + shipping -->
+    <div class="cart-cost-container">
+  <!--  promo Code -->
+      <div class="p-inputgroup">
+
+        <input type="text" [(ngModel)]="enteredPromoCode" pInputText placeholder="Promo Сode" />
+        <button type="button" pButton label="Apply" styleClass="p-button-warn" (click)="checkPromoCode()"></button>
+      </div>
+  <!--  Cost + shipping -->
+      <div class="cart-cost-info">
+        <div class="cart-cost-info__total">
+          <p>Sab  total:</p>
+          <p>{{totalPrice | currency}}</p>
+        </div>
+        <div class="cart-cost-info__shipping">
+          <p>Shipping: </p>
+          <p>{{shippingCost | currency}}</p>
+        </div>
+        <p-divider></p-divider>
+      </div>
+    </div>
 <!--  Price panel-->
-    <app-price-panel class="price-panel" [productPrice]="totalPrice">
+
+    <app-price-panel class="price-panel" [productPrice]="totalPrice+shippingCost">
       <p total class="price-panel__title">Total: ({{ selectedItem }} items)</p>
-      <p-button class="price-panel__button" label="Proceed to checkout" styleClass="p-button-text p-button-lg" ></p-button>
+      <p-button
+        class="price-panel__button"
+        label="Proceed to checkout"
+        styleClass="p-button-text p-button-lg"
+        (click)="confirmOrder()"
+      ></p-button>
     </app-price-panel>
   </div>
+<!--  IF Cart is empty -->
+  <ng-template #emptyCart >
+    <h1 class="empty-cart">Yor cart is empty, please visit our <a routerLink="/shop"> shop</a>!</h1>
+  </ng-template>
 </div>

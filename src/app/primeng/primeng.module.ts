@@ -10,6 +10,8 @@ import { TabViewModule } from 'primeng/tabview';
 import { ChipModule } from 'primeng/chip';
 import { MenuModule } from 'primeng/menu';
 import { DividerModule } from 'primeng/divider';
+import { ToastModule } from 'primeng/toast';
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { DividerModule } from 'primeng/divider';
     ChipModule,
     MenuModule,
     DividerModule,
+    ToastModule,
   ],
   exports: [
     ButtonModule,
@@ -37,6 +40,7 @@ import { DividerModule } from 'primeng/divider';
     ChipModule,
     MenuModule,
     DividerModule,
+    ToastModule,
   ]
 })
 export class PrimengModule { }

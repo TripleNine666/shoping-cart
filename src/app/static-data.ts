@@ -5,3 +5,11 @@ export const CATEGORY: string[] = [
   'Gaming',
 ];
 
+export const PROMO_CODES = [
+  {code: 'FREEDELIVERY', type: 'delivery', value: 0},
+  {code: 'DISCOUNT10', type: 'discount', value: 10},
+  {code: 'DISCOUNT20', type: 'discount', value: 20},
+];
+
+export const SHIPPING_COST: number = 2.99;
+
