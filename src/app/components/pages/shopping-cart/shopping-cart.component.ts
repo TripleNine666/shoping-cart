@@ -11,10 +11,13 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService) {
   }
   productsInCart: CartItem[] = [];
+  totalPrice = 0;
+  selectedItem = 0;
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(items => {
       this.productsInCart = items;
+      this.calculateTotal();
     })
   }
 
@@ -30,5 +33,17 @@ export class ShoppingCartComponent implements OnInit {
   onSelectChange(item: CartItem, value: boolean) {
     item.isSelected = value;
     this.cartService.updateCart();
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    this.totalPrice = 0;
+    this.selectedItem = 0;
+    for (let item of this.productsInCart) {
+      if (item.isSelected) {
+        this.totalPrice += item.product.price * item.count;
+        this.selectedItem++;
+      }
+    }
   }
 }

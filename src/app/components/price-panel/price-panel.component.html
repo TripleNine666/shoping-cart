@@ -1,5 +1,10 @@
 <div class="price-panel">
-  <div class="product-price">{{productPrice | currency}}</div>
+  <div class="price-container">
+    <div class="total-title">
+      <ng-content select="[total]"></ng-content>
+    </div>
+    <div class="product-price">{{productPrice | currency}}</div>
+  </div>
   <div class="price-panel__actions">
     <ng-content></ng-content>
   </div>

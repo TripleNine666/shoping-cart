@@ -9,8 +9,12 @@
                    (deleteItem)="deleteCartItem($event)"
                    (selectChange)="onSelectChange(item, $event)"
     ></app-cart-item>
-  </div>
 <!--  promo Code -->
 <!--  Cost + shipping -->
 <!--  Price panel-->
+    <app-price-panel class="price-panel" [productPrice]="totalPrice">
+      <p total class="price-panel__title">Total: ({{ selectedItem }} items)</p>
+      <p-button class="price-panel__button" label="Proceed to checkout" styleClass="p-button-text p-button-lg" ></p-button>
+    </app-price-panel>
+  </div>
 </div>

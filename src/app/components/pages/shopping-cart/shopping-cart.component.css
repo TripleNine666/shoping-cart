@@ -1,11 +1,8 @@
 ::ng-deep app-shopping-cart {
-  height: 100%;
   background-color: white;
+  height: 100%;
 }
 
-.shopping-cart-container {
-  height: 100%;
-}
 
 .cart {
   display: flex;
@@ -13,9 +10,34 @@
   justify-content: center;
   align-items: center;
   padding: 16px;
+  margin: auto auto 150px
 }
 
 .cart-item {
   margin-bottom: 24px;
   padding: 8px;
+}
+
+.price-panel__title {
+  margin: 0;
+}
+
+.price-panel {
+  width: 600px;
+  height: 150px;
+  z-index: 1;
+}
+
+.price-panel__button {
+  background-color: white;
+  border-radius: 20px;
+}
+
+@media (max-width: 649px) {
+  .cart-item {
+    width: 400px;
+  }
+  .price-panel {
+    width: auto;
+  }
 }

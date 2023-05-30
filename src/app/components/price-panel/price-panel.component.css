@@ -8,13 +8,22 @@
   border-radius: 40px;
   position: fixed;
   bottom: 0;
+}
 
+.price-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+}
+
+.total-title {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .product-price {
   font-size: 36px;
   color: white;
-  margin-left: 32px;
+  margin-top: 8px;
 }
 
 .price-panel__actions{
