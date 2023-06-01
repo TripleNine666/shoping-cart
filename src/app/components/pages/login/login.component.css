@@ -1,0 +1,83 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form__form__code {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 255px;
+  margin-top: 16px;
+}
+
+.login-form__form__code__input {
+  width: 100%;
+}
+
+/* В styles.css добавьте следующие стили для ngx-intl-tel-input */
+::ng-deep .ngx-intl-tel-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  /* Увеличьте высоту компонента */
+  height: 53px;
+  width: 255px;
+  background: white;
+}
+::ng-deep .ngx-intl-tel-input:focus-within {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border: 2px solid #021374;
+}
+
+::ng-deep .ngx-intl-tel-input .iti__flag-container {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__selected-flag {
+  margin-right: 0.25rem;
+}
+
+::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__arrow {
+  border-color: #333 transparent transparent;
+}
+
+::ng-deep .ngx-intl-tel-input .iti__flag-container.open .iti__arrow {
+  border-color: transparent transparent #333;
+}
+
+::ng-deep .ngx-intl-tel-input input[type="tel"] {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+
+/* Уберите несоответствие цветов фона и рамки */
+::ng-deep .ngx-intl-tel-input input[type="tel"],
+::ng-deep .ngx-intl-tel-input .iti__flag-container {
+  background-color: transparent;
+}
+
+.submit-button {
+  margin-top: 16px;
+  align-self: flex-start;
+}

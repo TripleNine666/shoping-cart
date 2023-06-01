@@ -1,3 +1,6 @@
+@import '~intl-tel-input/build/css/intlTelInput.css';
+
+
 html {
   height: 100%;
 }

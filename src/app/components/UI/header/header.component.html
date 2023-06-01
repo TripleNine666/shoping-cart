@@ -2,11 +2,11 @@
 <div class="header-container">
   <p-toolbar>
     <div class="p-toolbar-group-left">
-      <ng-container *ngIf="false; else guestTemplate">
-        <img src="#" alt="#" class="user-icon">
+      <ng-container *ngIf="isAuth; else guestTemplate">
+        <p-avatar label="U" styleClass="mr-2" size="xlarge"></p-avatar>
         <span>
          <span class="hello">Hello</span><br>
-         <span class="user-name">#</span>
+         <span class="user-name">{{ user!.nickname }}</span>
        </span>
       </ng-container>
       <ng-template #guestTemplate>
@@ -14,7 +14,7 @@
          <span class="hello">Hello</span><br>
          <span class="user-name">Guest</span>
        </span>
-        <button pButton pRipple type="button" label="Log In" ></button>
+        <button pButton pRipple type="button" label="Log In" routerLink="/login"></button>
       </ng-template>
     </div>
     <div class="p-toolbar-group-right">

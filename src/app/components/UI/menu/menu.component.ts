@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from "primeng/api";
+import { AuthService } from "../../pages/login/auth.service";
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +8,9 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit{
+  constructor(private authService: AuthService) {
+  }
+
   items: MenuItem[] = [];
 
   ngOnInit() {
@@ -27,5 +31,16 @@ export class MenuComponent implements OnInit{
         routerLink: ""
       },
     ]
+    if (this.authService.isAuth()) {
+      this.items.push({
+        label: "Log Out",
+        icon: "pi pi-sign-out",
+        command: () => {
+          this.authService.logOut();
+          this.items.splice(this.items.length - 1, 1)
+        },
+        routerLink: "/shop",
+      })
+    }
   }
 }

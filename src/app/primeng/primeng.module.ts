@@ -11,6 +11,9 @@ import { ChipModule } from 'primeng/chip';
 import { MenuModule } from 'primeng/menu';
 import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { AvatarModule } from 'primeng/avatar';
+
 
 
 
@@ -29,6 +32,8 @@ import { ToastModule } from 'primeng/toast';
     MenuModule,
     DividerModule,
     ToastModule,
+    MessagesModule,
+    AvatarModule,
   ],
   exports: [
     ButtonModule,
@@ -41,6 +46,8 @@ import { ToastModule } from 'primeng/toast';
     MenuModule,
     DividerModule,
     ToastModule,
+    MessagesModule,
+    AvatarModule
   ]
 })
 export class PrimengModule { }
