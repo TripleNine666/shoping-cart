@@ -54,7 +54,6 @@ export class LoginComponent {
     const code = Number(this.loginForm.get('code')?.value);
     // проверка наличия кода
     console.log(code)
-    console.log(phoneNumber)
     if (!code && phoneNumber) {
       // вызов метода сервиса для отправки кода на номер телефона
 
@@ -78,9 +77,8 @@ export class LoginComponent {
     } else if (phoneNumber){
       // вызов метода сервиса для проверки кода и получения токена
       this.authService.verifyCode(phoneNumber, code).subscribe(
-        response => {
+        _ => {
           // обработка успешного ответа
-          console.log(response);
           this.router.navigate(['/']); // перенаправление на главную страницу
         },
         error => {

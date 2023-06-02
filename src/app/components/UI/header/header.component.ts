@@ -20,9 +20,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
       // обновляем свои свойства при изменении authState
       this.isAuth = authState.isAuth;
       this.user = authState.user;
-      console.log('ОГО')
-      console.log(this.user);
-      console.log(this.isAuth)
     });
   }
 
