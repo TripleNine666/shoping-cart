@@ -21,7 +21,6 @@ export class ShopComponent {
   }
 
   filterProducts(event: any) {
-    console.log(event)
     let category = this.categories[event.index];
     this.filteredProducts = this.products.filter(p => p.category === category);
   }

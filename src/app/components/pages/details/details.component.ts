@@ -36,6 +36,6 @@ export class DetailsComponent implements OnInit {
       isSelected: true,
     };
     this.cartService.addToCart(item);
-    this.router.navigate(['/cart']).then();
+    this.router.navigate(['/shop']).then();
   }
 }

@@ -13,3 +13,8 @@ export const PROMO_CODES = [
 
 export const SHIPPING_COST: number = 2.99;
 
+export enum OrderStatus {
+  Completed = "Completed",
+  Cancelled = "Cancelled",
+  New = "New",
+}

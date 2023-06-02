@@ -1,0 +1,19 @@
+<div class="order-history">
+  <app-header-details></app-header-details>
+<!--  TODO: TableModule  -->
+  <div class="order-history-container">
+    <div class="order-container" *ngFor="let order of orderHistory">
+      <div class="order-status">{{order.status}}</div>
+      <div class="order-item" *ngFor="let item of order.cartItems">
+        <div class="order-item__name item-info">{{item.product.name}}</div>
+        <div class="order-item__price item-info">{{item.product.price}}</div>
+        <div class="order-item__count item-info">{{item.count}}</div>
+      </div>
+      <div class="order-item">
+        <div class="item-info">{{order.shipping}}</div>
+        <div class="item-info">{{order.totalPrice}}</div>
+        <div class="item-info">{{order.shipping + order.totalPrice}}</div>
+      </div>
+    </div>
+  </div>
+</div>

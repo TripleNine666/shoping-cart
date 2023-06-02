@@ -31,6 +31,7 @@ import {RippleModule} from "primeng/ripple";
 import {MessageModule} from "primeng/message";
 
 import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
+import { OrderHistoryComponent } from './components/pages/order-history/order-history.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
     HeaderCartComponent,
     ArrowBackComponent,
     CartItemComponent,
-    LoginComponent
+    LoginComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

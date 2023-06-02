@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit{
       {
         label: "Orders History",
         icon: "pi pi-history",
-        routerLink: ""
+        routerLink: "/order-history"
       },
       {
         label: "Contacts",

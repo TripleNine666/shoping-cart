@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {InMemoryDbService, RequestInfo} from 'angular-in-memory-web-api'
 import {Product} from "./interfaces/Product";
 import {User} from "./interfaces/User";
-import { CATEGORY } from './static-data'
+import {CATEGORY, OrderStatus} from './static-data'
 
 @Injectable({
   providedIn: 'root'
@@ -97,9 +97,61 @@ export class InMemoryDataService implements InMemoryDbService{
     // ... your existing code for products
 
     const users: User[] = [
-      { nickname: 'Smith', phoneNumber: '+375447692433' },
-      { nickname: 'Jones', phoneNumber: '+375441234567' },
-      { nickname: 'Brown', phoneNumber: '+375442345678' }
+      {
+        nickname: 'Smith',
+        phoneNumber: '+375447692433',
+        orderHistory: [
+          {
+            id: 1,
+            status: OrderStatus.Completed,
+            shipping: 2.99,
+            totalPrice: 62.99,
+            cartItems: [
+              {
+                count: 1,
+                product: {
+                  id: 2,
+                  name: 'Коньяк',
+                  category: CATEGORY[1],
+                  price: 5,
+                  img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG122.png',
+                  size: '50 cl / 500ml',
+                }
+              },
+              {
+                count: 3,
+                product: {
+                  id: 5,
+                  name: 'Суши',
+                  category: CATEGORY[0],
+                  price: 20,
+                  img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+                  size: '100 cl / 1L',
+                }
+              },
+            ]
+          },
+          {
+            id: 2,
+            status: OrderStatus.Cancelled,
+            shipping: 2.99,
+            totalPrice: 32.99,
+            cartItems: [
+              {
+                count: 3,
+                product: {
+                  id: 1,
+                  name: 'Виски',
+                  category: CATEGORY[1],
+                  price: 10,
+                  img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG132.png',
+                  size: '100 cl / 1L',
+                }
+              }
+            ]
+          },
+        ]
+      },
     ];
 
     return { products, users};

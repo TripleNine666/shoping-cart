@@ -19,11 +19,11 @@ export class AuthService {
 
   private authState = new BehaviorSubject<{isAuth: boolean, user: User}>({
     isAuth: false,
-    user: {nickname: '', phoneNumber: ''}});
+    user: {nickname: '', phoneNumber: '', orderHistory  : []}});
 
 
   // метод для получения Observable из authState
-  getAuthState$(): Observable<{isAuth: boolean, user: any}> {
+  getAuthState$(): Observable<{isAuth: boolean, user: User}> {
     return this.authState.asObservable();
   }
 
