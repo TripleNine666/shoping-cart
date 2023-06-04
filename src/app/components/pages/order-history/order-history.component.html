@@ -14,6 +14,11 @@
         <div class="item-info">{{order.totalPrice}}</div>
         <div class="item-info">{{order.shipping + order.totalPrice}}</div>
       </div>
+      <p-button
+        label="Go to order"
+        styleClass="p-button-text p-button-lg"
+        (click)="goToOrder(order)"
+      ></p-button>
     </div>
   </div>
 </div>

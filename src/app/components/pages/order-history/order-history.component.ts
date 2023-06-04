@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../login/auth.service";
+import { AuthService } from "../../../services/auth.service";
 import {Order} from "../../../interfaces/Order";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order-history',
@@ -8,7 +9,7 @@ import {Order} from "../../../interfaces/Order";
   styleUrls: ['./order-history.component.css']
 })
 export class OrderHistoryComponent implements OnInit {
-  constructor(private authService: AuthService ) {
+  constructor(private authService: AuthService, private router: Router) {
   }
   isAuth: boolean = false;
   orderHistory: Order[] = [];
@@ -18,8 +19,12 @@ export class OrderHistoryComponent implements OnInit {
       // обновляем свои свойства при изменении authState
       this.isAuth = authState.isAuth;
       this.orderHistory = authState.user.orderHistory;
-      console.log(this.isAuth)
+      console.log('Я работать')
       console.log(this.orderHistory)
     });
+  }
+
+  goToOrder(order: Order) {
+    this.router.navigate([`/order-details/${order.id}`], {queryParams: {order: JSON.stringify(order)}}).then();
   }
 }

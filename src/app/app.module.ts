@@ -26,12 +26,13 @@ import { CartItemComponent } from './components/pages/shopping-cart/cart-item/ca
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './components/pages/login/login.component';
 
-import { AuthService } from "./components/pages/login/auth.service";
+import { AuthService } from "./services/auth.service";
 import {RippleModule} from "primeng/ripple";
 import {MessageModule} from "primeng/message";
 
 import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
 import { OrderHistoryComponent } from './components/pages/order-history/order-history.component';
+import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { OrderHistoryComponent } from './components/pages/order-history/order-hi
     ArrowBackComponent,
     CartItemComponent,
     LoginComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { OrderHistoryComponent } from './components/pages/order-history/order-hi
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      passThruUnknownUrl: true
+      passThruUnknownUrl: true,
+      put204: false
     }),
     FormsModule,
     JwtModule.forRoot({

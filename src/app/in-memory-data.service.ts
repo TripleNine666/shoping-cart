@@ -98,6 +98,7 @@ export class InMemoryDataService implements InMemoryDbService{
 
     const users: User[] = [
       {
+        id: 1,
         nickname: 'Smith',
         phoneNumber: '+375447692433',
         orderHistory: [

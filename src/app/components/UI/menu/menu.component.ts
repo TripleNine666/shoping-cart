@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from "primeng/api";
-import { AuthService } from "../../pages/login/auth.service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: 'app-menu',

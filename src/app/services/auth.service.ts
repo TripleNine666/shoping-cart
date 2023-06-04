@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
-import {User} from "../../../interfaces/User";
+import {User} from "../interfaces/User";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AuthService {
 
   private authState = new BehaviorSubject<{isAuth: boolean, user: User}>({
     isAuth: false,
-    user: {nickname: '', phoneNumber: '', orderHistory  : []}});
+    user: {id: 0, nickname: '', phoneNumber: '', orderHistory  : []}});
 
 
   // метод для получения Observable из authState
@@ -83,21 +83,6 @@ export class AuthService {
     // возвращаем true, если токен есть, и false, если нет
     return !!token;
   }
-
-  // // метод для добавления нового заказа в orderHistory
-  // addOrder(order: any): void {
-  //   // получаем текущий user
-  //   const user = this.getUser();
-  //   // проверяем, есть ли у user свойство orderHistory
-  //   if (!user.orderHistory) {
-  //     // если нет, то создаем его как пустой массив
-  //     user.orderHistory = [];
-  //   }
-  //   // добавляем новый заказ в начало массива
-  //   user.orderHistory.unshift(order);
-  //   // сохраняем обновленный user
-  //   this.storeUser(user);
-  // }
 
   // метод для выхода
   logOut(): void {

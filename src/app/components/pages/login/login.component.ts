@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthService } from '../../../services/auth.service';
 import {Router} from "@angular/router";
 import { MessageService } from "primeng/api";
 import { SearchCountryField, CountryISO  } from 'ngx-intl-tel-input';
