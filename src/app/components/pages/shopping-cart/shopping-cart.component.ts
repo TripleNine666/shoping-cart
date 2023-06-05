@@ -5,9 +5,6 @@ import { MessageService } from 'primeng/api';
 import {SHIPPING_COST, PROMO_CODES} from "../../../static-data";
 import {OrderService} from "../../../services/order.service";
 import {AuthService} from "../../../services/auth.service";
-import { SearchCountryField, CountryISO  } from 'ngx-intl-tel-input';
-import {FormBuilder, Validators} from "@angular/forms";
-import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -20,37 +17,9 @@ export class ShoppingCartComponent implements OnInit {
               private messageService: MessageService,
               private orderService: OrderService,
               private authService: AuthService,
-              private userService: UserService,
-              private fb: FormBuilder,
   ) {
   }
   productsInCart: CartItem[] = [];
-
-  codeSent = false;
-
-  // Phone number block
-  SearchCountryField = SearchCountryField;
-  CountryISO = CountryISO;
-
-  phoneForm = this.fb.group({
-    phoneNumber: [
-      {number: '', countryCode: ''},
-      [Validators.required],
-    ],
-    code: [
-      '',
-      [Validators.required, Validators.minLength(4)],
-    ]
-  });
-
-
-
-  get phoneNumber() {
-    return this.phoneForm.get('phoneNumber');
-  }
-  get code() {
-    return this.phoneForm.get('code');
-  }
 
 
   // dialog is visible
@@ -142,53 +111,9 @@ export class ShoppingCartComponent implements OnInit {
     } else {
       this.dialogVisible = true;
     }
-
   }
 
-  onPhoneFormSubmit() {
-    const phoneNumber = this.phoneNumber!.value!.number;
-    const code = Number(this.phoneForm.get('code')?.value);
-    if (!code) {
-      // вызов метода сервиса для отправки кода на номер телефона
-      this.authService.sendCode(phoneNumber).subscribe(
-        response => {
-          if (!response.userExists) {
-            this.userService.addEmptyUser(phoneNumber).subscribe(user => console.log(user))
-          }
-          console.log(response.code);
-          this.codeSent = true; // установка флага отправки кода
-          this.messageService.add({ severity: 'success',
-            summary: 'Success',
-            detail: `Code received`})
-
-        },
-        error => {
-          // обработка неуспешного ответа
-          console.log(error);
-          this.messageService.add({ severity: 'error',
-            summary: 'Error',
-            detail: `Phone error`})
-        }
-      );
-    } else {
-      // вызов метода сервиса для проверки кода и получения токена
-      this.authService.verifyCode(phoneNumber, code).subscribe(
-        resp => {
-          // обработка успешного ответа
-          console.log(resp)
-          this.dialogVisible = false;
-          this.messageService.add({ severity: 'success',
-            summary: 'Success',
-            detail: `you have successfully logged in`})
-        },
-        error => {
-          // обработка неуспешного ответа
-          console.log(error);
-          this.messageService.add({ severity: 'error',
-            summary: 'Error',
-            detail: `Code Error`})
-        }
-      );
-    }
+  onLoginSuccess() {
+    this.dialogVisible = false;
   }
 }
