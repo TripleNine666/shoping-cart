@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { AvatarModule } from 'primeng/avatar';
 import { DialogModule } from 'primeng/dialog';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 
@@ -35,7 +36,8 @@ import { DialogModule } from 'primeng/dialog';
     ToastModule,
     MessagesModule,
     AvatarModule,
-    DialogModule
+    DialogModule,
+    RadioButtonModule
   ],
   exports: [
     ButtonModule,
@@ -50,7 +52,8 @@ import { DialogModule } from 'primeng/dialog';
     ToastModule,
     MessagesModule,
     AvatarModule,
-    DialogModule
+    DialogModule,
+    RadioButtonModule
   ]
 })
 export class PrimengModule { }

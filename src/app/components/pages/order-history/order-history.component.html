@@ -1,8 +1,46 @@
 <div class="order-history">
   <app-header-details></app-header-details>
+  <div class="flex flex-wrap gap-3">
+    <div class="flex align-items-center">
+
+      <p-radioButton
+        name="status"
+        [value]="orderStatus.New"
+        [(ngModel)]="statusFilter"
+        inputId="new"
+        (onClick)="radioClick()"
+      ></p-radioButton>
+
+      <label >New</label>
+    </div>
+    <div class="flex align-items-center">
+
+      <p-radioButton
+        name="status"
+        [value]="orderStatus.Completed"
+        [(ngModel)]="statusFilter"
+        inputId="completed"
+        (onClick)="radioClick()"
+      ></p-radioButton>
+
+      <label >Completed</label>
+    </div>
+    <div class="flex align-items-center">
+
+      <p-radioButton
+        name="status"
+        [value]="orderStatus.Cancelled"
+        [(ngModel)]="statusFilter"
+        inputId="canceled"
+        (onClick)="radioClick()"
+      ></p-radioButton>
+
+      <label >Canceled</label>
+    </div>
+  </div>
 <!--  TODO: TableModule  -->
   <div class="order-history-container">
-    <div class="order-container" *ngFor="let order of orderHistory">
+    <div class="order-container" *ngFor="let order of filteredOrders">
       <div class="order-status">{{order.status}}</div>
       <div class="order-item" *ngFor="let item of order.cartItems">
         <div class="order-item__name item-info">{{item.product.name}}</div>
