@@ -4,6 +4,10 @@ import {CartService} from "../../../services/cart.service";
 import { MessageService } from 'primeng/api';
 import {SHIPPING_COST, PROMO_CODES} from "../../../static-data";
 import {OrderService} from "../../../services/order.service";
+import {AuthService} from "../../../services/auth.service";
+import { SearchCountryField, CountryISO  } from 'ngx-intl-tel-input';
+import {FormBuilder, Validators} from "@angular/forms";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,10 +18,43 @@ import {OrderService} from "../../../services/order.service";
 export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService,
               private messageService: MessageService,
-              private orderService: OrderService
+              private orderService: OrderService,
+              private authService: AuthService,
+              private userService: UserService,
+              private fb: FormBuilder,
   ) {
   }
   productsInCart: CartItem[] = [];
+
+  codeSent = false;
+
+  // Phone number block
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+
+  phoneForm = this.fb.group({
+    phoneNumber: [
+      {number: '', countryCode: ''},
+      [Validators.required],
+    ],
+    code: [
+      '',
+      [Validators.required, Validators.minLength(4)],
+    ]
+  });
+
+
+
+  get phoneNumber() {
+    return this.phoneForm.get('phoneNumber');
+  }
+  get code() {
+    return this.phoneForm.get('code');
+  }
+
+
+  // dialog is visible
+  dialogVisible = false;
 
   totalPrice = 0;
   selectedItem = 0;
@@ -92,14 +129,66 @@ export class ShoppingCartComponent implements OnInit {
 
   confirmOrder() {
     const selectedItems = this.productsInCart.filter(product => product.isSelected === true)
-    this.orderService.addOrder(selectedItems, this.shippingCost, this.totalPrice).subscribe(user => {
-      console.log(user);
-      this.messageService.add({ severity: 'success',
-        summary: 'Your order received!',
-        detail: "Please wait for confirmation by phone",
+    if (this.authService.isAuth()){
+      this.orderService.addOrder(selectedItems, this.shippingCost, this.totalPrice).subscribe(user => {
+        console.log(user);
+        this.messageService.add({ severity: 'success',
+          summary: 'Your order received!',
+          detail: "Please wait for confirmation by phone",
+        })
+        this.cartService.clearCart();
+        this.discount = 0;
       })
-      this.cartService.clearCart();
-      this.discount = 0;
-    })
+    } else {
+      this.dialogVisible = true;
+    }
+
+  }
+
+  onPhoneFormSubmit() {
+    const phoneNumber = this.phoneNumber!.value!.number;
+    const code = Number(this.phoneForm.get('code')?.value);
+    if (!code) {
+      // вызов метода сервиса для отправки кода на номер телефона
+      this.authService.sendCode(phoneNumber).subscribe(
+        response => {
+          if (!response.userExists) {
+            this.userService.addEmptyUser(phoneNumber).subscribe(user => console.log(user))
+          }
+          console.log(response.code);
+          this.codeSent = true; // установка флага отправки кода
+          this.messageService.add({ severity: 'success',
+            summary: 'Success',
+            detail: `Code received`})
+
+        },
+        error => {
+          // обработка неуспешного ответа
+          console.log(error);
+          this.messageService.add({ severity: 'error',
+            summary: 'Error',
+            detail: `Phone error`})
+        }
+      );
+    } else {
+      // вызов метода сервиса для проверки кода и получения токена
+      this.authService.verifyCode(phoneNumber, code).subscribe(
+        resp => {
+          // обработка успешного ответа
+          console.log(resp)
+          this.dialogVisible = false;
+          this.messageService.add({ severity: 'success',
+            summary: 'Success',
+            detail: `you have successfully logged in`})
+        },
+        error => {
+          // обработка неуспешного ответа
+          console.log(error);
+          this.messageService.add({ severity: 'error',
+            summary: 'Error',
+            detail: `Code Error`})
+        }
+      );
+    }
   }
 }

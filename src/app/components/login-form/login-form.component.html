@@ -1,0 +1,28 @@
+<form class="login-form__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="p-field">
+    <label for="phoneNumber">Номер телефона</label>
+    <ngx-intl-tel-input
+      class="ngx-intl-tel-input"
+      id="phoneNumber"
+      [cssClass]="'custom'"
+      [preferredCountries]="['by', 'ru']"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="true"
+      [searchCountryFlag]="true"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name, SearchCountryField.DialCode]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.Belarus"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      name="phone"
+      formControlName="phoneNumber"
+    ></ngx-intl-tel-input>
+    <small id="phone-help" class="p-error" *ngIf="phoneNumber!.invalid && phoneNumber!.touched">Неверный формат номера</small>
+  </div>
+  <div class="p-field login-form__form__code" *ngIf="codeSent">
+    <label for="code">Код подтверждения</label>
+    <input class="login-form__form__code__input" id="code" type="text" pInputText formControlName="code">
+    <small class="p-error" *ngIf="code!.invalid && code!.touched">Неверный код</small>
+  </div>
+  <button class="submit-button" type="submit" pButton label="Подтвердить" [disabled]="!codeSent && phoneNumber!.invalid || codeSent && code!.invalid"></button>
+</form>

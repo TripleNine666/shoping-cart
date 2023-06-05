@@ -45,7 +45,6 @@ export class AuthService {
   verifyCode(phoneNumber: string, code: number): Observable<any> {
     return this.http.post<any>('api/verifyCode', { phoneNumber, code }).pipe(
       map(response => {
-        console.log(response.user)
         // сохраняем токен и user в localStorage
         this.storeToken(response.token);
         this.storeUser(response.user);

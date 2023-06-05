@@ -13,6 +13,7 @@ import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { AvatarModule } from 'primeng/avatar';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -34,6 +35,7 @@ import { AvatarModule } from 'primeng/avatar';
     ToastModule,
     MessagesModule,
     AvatarModule,
+    DialogModule
   ],
   exports: [
     ButtonModule,
@@ -47,7 +49,8 @@ import { AvatarModule } from 'primeng/avatar';
     DividerModule,
     ToastModule,
     MessagesModule,
-    AvatarModule
+    AvatarModule,
+    DialogModule
   ]
 })
 export class PrimengModule { }

@@ -4,6 +4,7 @@ import {Product} from "./interfaces/Product";
 import {User} from "./interfaces/User";
 import {CATEGORY, OrderStatus} from './static-data'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -177,33 +178,21 @@ export class InMemoryDataService implements InMemoryDbService{
     const phoneNumber = reqInfo.utils.getJsonBody(reqInfo.req).phoneNumber;
 
     const user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
+
     // Generate a random code
-    if(user) {
-      const code = Math.floor(Math.random() * 10000);
-      // Save the code in the verificationCode property
-      this.verificationCode = code;
-      // Return a response with the code and a message
-      return reqInfo.utils.createResponse$(() => {
-        const options: any = {
-          status: 200,
-          body: {code, message: 'Verification code sent'},
-          headers: reqInfo.headers,
-          url: reqInfo.url,
-        };
-        return options;
-      });
-    } else {
-      // Return a response with an error message
-      return reqInfo.utils.createResponse$(() => {
-        const options: any = {
-          status: 400,
-          body: { message: 'User not exist' },
-          headers: reqInfo.headers,
-          url: reqInfo.url,
-        };
-        return options;
-      });
-    }
+    const code = Math.floor(Math.random() * 10000);
+    // Save the code in the verificationCode property
+    this.verificationCode = code;
+    // Return a response with the code and a message
+    return reqInfo.utils.createResponse$(() => {
+      const options: any = {
+        status: 200,
+        body: {code, message: 'Verification code sent', userExists: !!user},
+        headers: reqInfo.headers,
+        url: reqInfo.url,
+      };
+      return options;
+    });
   }
 
   // Method to verify the code and get a JWT token
@@ -214,8 +203,18 @@ export class InMemoryDataService implements InMemoryDbService{
     // Check if the code matches the verificationCode property
     if (code === this.verificationCode) {
       // Find the user with the matching phone number in the users array
-      const user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
+      let user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
       // Check if the user exists
+      if (!user) {
+        user = {
+          id: this.genId(this.createDb().users),
+          nickname: 'user',
+          phoneNumber,
+          orderHistory: []
+        };
+        this.createDb().users.push(user);
+        console.log(this.createDb().users)
+      }
 
       const token = Math.random().toString(36).substring(2);
       // Return a response with the token, user and a message
@@ -243,4 +242,8 @@ export class InMemoryDataService implements InMemoryDbService{
     }
   }
 
+
+  genId(users: User[]): number{
+    return users.length > 0 ? Math.max(...users.map(user => user.id)) + 1: 1;
+  }
 }

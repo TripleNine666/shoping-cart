@@ -1,91 +1,16 @@
-::ng-deep app-shopping-cart {
-  background-color: white;
-  height: 100%;
-}
-
-
-.cart {
+.login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  margin: auto auto 150px
 }
 
-.cart-item {
-  margin-bottom: 24px;
-  padding: 8px;
-}
-
-.price-panel__title {
-  margin: 0;
-}
-
-.cart-cost-container {
-  margin-top: 32px;
+.login-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* PROMO CODE */
-.p-inputgroup {
-  width: 600px;
-}
-
-/* cost info */
-
-.cart-cost-info {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  color: rgb(128, 128, 128);
-}
-
-.cart-cost-info__total {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 32px;
-
-}
-
-.cart-cost-info__total p {
-  margin: 0 0 16px;
-}
-
-.cart-cost-info__shipping {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cart-cost-info__shipping p {
-  margin: 0;
-}
-
-.price-panel {
-  width: 600px;
-  height: 150px;
-  z-index: 1;
-}
-
-.price-panel__button {
-  background-color: white;
-  border-radius: 20px;
-}
-
-.empty-cart {
-  text-align: center;
-}
-
-
-
-
-
-
-
-.phone-form__form {
+.login-form__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,25 +80,4 @@
 .submit-button {
   margin-top: 16px;
   align-self: flex-start;
-}
-
-
-
-
-
-
-
-@media (max-width: 649px) {
-  .cart-item {
-    width: 400px;
-  }
-  .p-inputgroup{
-    width: 400px;
-  }
-  .cart-cost-info {
-    width: 400px;
-  }
-  .price-panel {
-    width: auto;
-  }
 }

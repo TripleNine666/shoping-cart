@@ -36,6 +36,7 @@ import { OrderDetailsComponent } from './components/pages/order-details/order-de
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AuthInterceptor } from './auth.interceptor';
     CartItemComponent,
     LoginComponent,
     OrderHistoryComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
