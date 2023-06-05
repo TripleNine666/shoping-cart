@@ -19,8 +19,6 @@ export class OrderHistoryComponent implements OnInit {
       // обновляем свои свойства при изменении authState
       this.isAuth = authState.isAuth;
       this.orderHistory = authState.user.orderHistory;
-      console.log('Я работать')
-      console.log(this.orderHistory)
     });
   }
 

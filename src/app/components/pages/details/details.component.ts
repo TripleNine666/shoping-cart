@@ -25,8 +25,7 @@ export class DetailsComponent implements OnInit {
 
   getProduct() {
     const prodID = Number(this.route.snapshot.paramMap.get('id'));
-    this.shopService.getProduct(prodID).subscribe(product => {this.product = product;
-      console.log(product)});
+    this.shopService.getProduct(prodID).subscribe(product => this.product = product);
   }
 
   addToCart() {

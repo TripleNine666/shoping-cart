@@ -215,9 +215,7 @@ export class InMemoryDataService implements InMemoryDbService{
       const user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
       // Check if the user exists
 
-
-      // Create a JWT token with the phone number and expiration time
-      const token = 'token'
+      const token = Math.random().toString(36).substring(2);
       // Return a response with the token, user and a message
       return reqInfo.utils.createResponse$(() => {
         const options: any = {

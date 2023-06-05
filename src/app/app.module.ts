@@ -34,6 +34,9 @@ import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
 import { OrderHistoryComponent } from './components/pages/order-history/order-history.component';
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -77,7 +80,14 @@ import { OrderDetailsComponent } from './components/pages/order-details/order-de
     MessageModule,
     NgxIntlTelInputModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
