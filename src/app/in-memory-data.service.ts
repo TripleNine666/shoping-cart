@@ -11,6 +11,8 @@ export class InMemoryDataService implements InMemoryDbService{
   private verificationCode?: number;
 
   constructor() { }
+  // A public static variable to store the last order id
+  public static lastOrderId = 2;
   createDb(){
     const products: Product[] = [
       {

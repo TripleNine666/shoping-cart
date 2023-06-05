@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CartItem} from "../../../interfaces/CartItem";
-import {CartService} from "./cart.service";
+import {CartService} from "../../../services/cart.service";
 import { MessageService } from 'primeng/api';
 import {SHIPPING_COST, PROMO_CODES} from "../../../static-data";
+import {OrderService} from "../../../services/order.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,7 +12,10 @@ import {SHIPPING_COST, PROMO_CODES} from "../../../static-data";
   providers: [MessageService]
 })
 export class ShoppingCartComponent implements OnInit {
-  constructor(private cartService: CartService, private messageService: MessageService) {
+  constructor(private cartService: CartService,
+              private messageService: MessageService,
+              private orderService: OrderService
+  ) {
   }
   productsInCart: CartItem[] = [];
 
@@ -87,11 +91,15 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   confirmOrder() {
-    this.messageService.add({ severity: 'success',
-      summary: 'Your order received!',
-      detail: "Please wait for confirmation by phone",
+    const selectedItems = this.productsInCart.filter(product => product.isSelected === true)
+    this.orderService.addOrder(selectedItems, this.shippingCost, this.totalPrice).subscribe(user => {
+      console.log(user);
+      this.messageService.add({ severity: 'success',
+        summary: 'Your order received!',
+        detail: "Please wait for confirmation by phone",
+      })
+      this.cartService.clearCart();
+      this.discount = 0;
     })
-    this.cartService.clearCart();
-    this.discount = 0;
   }
 }
