@@ -32,6 +32,8 @@ export class ShoppingCartComponent implements OnInit {
   // Discount in %
   discount = 0;
 
+
+
   shippingCost: number = SHIPPING_COST;
   promoCodes = PROMO_CODES;
 

@@ -1,8 +1,7 @@
-::ng-deep app-shopping-cart {
+:host {
   background-color: white;
   height: 100%;
 }
-
 
 .cart {
   display: flex;
@@ -28,6 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 150px;
 }
 
 /* PROMO CODE */
@@ -65,9 +65,11 @@
 }
 
 .price-panel {
-  width: 600px;
   height: 150px;
   z-index: 1;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
 }
 
 .price-panel__button {
@@ -174,6 +176,6 @@
     width: 400px;
   }
   .price-panel {
-    width: auto;
+    width: 100%;
   }
 }

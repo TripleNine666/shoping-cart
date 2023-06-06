@@ -12,16 +12,18 @@
   justify-content: center;
   width: 600px;
   margin: auto auto 150px;
+  /*height: calc(100vh - 200px); !* set the height to the viewport height minus the price panel height *!*/
+  /*overflow: auto; !* add scrollbars if the content overflows *!*/
 }
 
 .img-container {
   display: flex;
-  margin: auto;
+  /*margin-top: 300px;*/
   width: 600px;
   height: 600px;
   overflow: hidden;
   position: relative;
-
+  /*flex-shrink: 0;*/
 }
 
 .img-container .background {
@@ -98,8 +100,12 @@
 
 
 /* Price block */
-
-
+.app-price-panel {
+  height: 150px;
+  background-color: #fbf3ec;
+  position: fixed;
+  bottom: 0;
+}
 
 .counter {
   margin-right: 64px;
@@ -129,5 +135,8 @@
   .description{
     width: 400px;
   }
-
+  .app-price-panel {
+    width: 100%;
+    left: 0;
+  }
 }
