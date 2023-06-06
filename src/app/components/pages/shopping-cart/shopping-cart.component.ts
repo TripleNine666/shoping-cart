@@ -25,6 +25,7 @@ export class ShoppingCartComponent implements OnInit {
   // dialog is visible
   dialogVisible = false;
 
+
   totalPrice = 0;
   selectedItem = 0;
 
@@ -39,8 +40,8 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
     this.cartService.cartItems$.subscribe(items => {
       this.productsInCart = items;
-      this.calculateTotal();
     })
+    this.cartService.totalPrice$.subscribe(totalPrice => this.totalPrice = totalPrice);
   }
 
   onCountChange(item: CartItem, value: number) {
@@ -55,19 +56,6 @@ export class ShoppingCartComponent implements OnInit {
   onSelectChange(item: CartItem, value: boolean) {
     item.isSelected = value;
     this.cartService.updateCart();
-    this.calculateTotal();
-  }
-
-  calculateTotal() {
-    this.totalPrice = 0;
-    this.selectedItem = 0;
-    for (let item of this.productsInCart) {
-      if (item.isSelected) {
-        this.totalPrice += item.product.price * item.count;
-        this.selectedItem++;
-      }
-    }
-    this.totalPrice = this.totalPrice - this.discount / 100 * this.totalPrice;
   }
 
   checkPromoCode() {
@@ -87,8 +75,7 @@ export class ShoppingCartComponent implements OnInit {
           detail: `The entered Promo Code: "${this.enteredPromoCode}" is activate!`})
         break;
       case 'discount':
-        this.discount = promoCode.value;
-        this.calculateTotal();
+        this.cartService.applyPromoCode(promoCode.value)
         this.messageService.add({ severity: 'success',
           summary: 'Discount activate',
           detail: `The entered Promo Code: "${this.enteredPromoCode}" is activate! \n

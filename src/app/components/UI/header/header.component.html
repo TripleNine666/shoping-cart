@@ -1,25 +1,52 @@
-<!-- Шаблон для header -->
-<div class="header-container">
-  <p-toolbar>
-    <div class="p-toolbar-group-left">
-      <ng-container *ngIf="isAuth; else guestTemplate">
-        <p-avatar label="U" styleClass="mr-2" size="xlarge"></p-avatar>
-        <span>
-         <span class="hello">Hello</span><br>
-         <span class="user-name">{{ user!.nickname }}</span>
-       </span>
-      </ng-container>
-      <ng-template #guestTemplate>
-       <span class="guest-header">
-         <span class="hello">Hello</span><br>
-         <span class="user-name">Guest</span>
-       </span>
-        <button pButton pRipple type="button" label="Log In" routerLink="/login"></button>
-      </ng-template>
+<div *ngIf="route.url | async as url" >
+  <div *ngIf="url[0].path === 'shop'">
+    <!-- Шаблон для header -->
+    <div >
+      <p-toolbar >
+        <div class="p-toolbar-group-left">
+          <ng-container *ngIf="isAuth; else guestTemplate">
+            <p-avatar label="U" styleClass="mr-2" size="xlarge"></p-avatar>
+            <span>
+             <span class="hello">Hello</span><br>
+             <span class="user-name">{{ user!.nickname }}</span>
+           </span>
+          </ng-container>
+          <ng-template #guestTemplate>
+           <span class="guest-header">
+             <span class="hello">Hello</span><br>
+             <span class="user-name">Guest</span>
+           </span>
+            <button pButton pRipple type="button" label="Log In" routerLink="/login"></button>
+          </ng-template>
+        </div>
+        <p-button label="{{totalCartPrice | currency}} Cart" routerLink="/cart"></p-button>
+        <div class="p-toolbar-group-right">
+          <app-menu></app-menu>
+        </div>
+      </p-toolbar>
     </div>
-    <div class="p-toolbar-group-right">
-      <app-menu></app-menu>
-    </div>
-  </p-toolbar>
+  </div>
+
+  <div *ngIf="url[0].path === 'cart'">
+    <!-- Шаблон для header-cart -->
+    <p-toolbar class="cart">
+      <app-arrow-back class="p-toolbar-group-start"></app-arrow-back>
+      <div class="cart-header-title">My Cart</div>
+      <div class="p-toolbar-group-end">
+        <app-menu></app-menu>
+      </div>
+    </p-toolbar>
+  </div>
+
+  <div *ngIf="url[0].path !== 'shop' && url[0].path !== 'cart'">
+    <!-- Шаблон для header-details -->
+    <p-toolbar>
+      <app-arrow-back class="p-toolbar-group-start"></app-arrow-back>
+      <p-button label="{{totalCartPrice | currency}} Cart" routerLink="/cart"></p-button>
+      <div class="p-toolbar-group-end">
+        <app-menu></app-menu>
+      </div>
+    </p-toolbar>
+  </div>
 </div>
 

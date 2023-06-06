@@ -9,6 +9,12 @@ export class CartService {
   private cartItems = new BehaviorSubject<CartItem[]>([]);
   public cartItems$ = this.cartItems.asObservable();
 
+  private totalPrice = new BehaviorSubject<number>(0);
+  public totalPrice$ = this.totalPrice.asObservable();
+
+  private promoCode = new BehaviorSubject<number | null>(null);
+  // public promoCode$ = this.promoCode.asObservable();
+
   constructor() { }
 
   addToCart(item: CartItem) {
@@ -20,11 +26,13 @@ export class CartService {
       currentItems.push(item);
     }
     this.cartItems.next(currentItems);
+    this.updateTotalPrice();
   }
 
   updateCart() {
     const currentItems = this.cartItems.getValue();
     this.cartItems.next(currentItems);
+    this.updateTotalPrice();
   }
 
   removeFromCart(item: CartItem) {
@@ -33,10 +41,34 @@ export class CartService {
     if (index > -1) {
       currentItems.splice(index, 1);
       this.cartItems.next(currentItems);
+      this.updateTotalPrice();
     }
   }
 
   clearCart() {
     this.cartItems.next([]);
+    this.promoCode.next(null);
+    this.updateTotalPrice();
+  }
+
+  applyPromoCode(discount: number) {
+    // обновляем значение BehaviorSubject с процентом скидки
+    this.promoCode.next(discount);
+    // обновляем totalPrice
+    this.updateTotalPrice();
+  }
+
+  updateTotalPrice() {
+    const currentItems = this.cartItems.getValue();
+    const currentPromoCode = this.promoCode.getValue();
+    let sum = 0;
+    for (let item of currentItems) {
+      sum += item.product.price * item.count;
+    }
+    // учитываем процент скидки при подсчете суммы
+    if (currentPromoCode) {
+      sum = sum * (1 - currentPromoCode / 100);
+    }
+    this.totalPrice.next(sum);
   }
 }

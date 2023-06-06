@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ShopService } from "../../../services/shop.service";
 import { Product } from "../../../interfaces/Product";
-// import { TabChangeEvent } from 'primeng/tabview'
 import { CATEGORY } from "../../../static-data";
 
 @Component({
