@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="list-item-container">
-  <p-tabView [scrollable]="true" (onChange)="filterProducts($event)">
+  <p-tabView [scrollable]="true" (onChange)="filterProducts($event.index)" [activeIndex]="selectedCategoryIndex">
     <p-tabPanel *ngFor="let category of categories" [header]="category" [tooltip]="category">
       <ng-template pTemplate="header">
         <p-chip label="{{category}}" icon="pi pi-tag"></p-chip>

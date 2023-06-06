@@ -1,33 +1,43 @@
-import { Component } from '@angular/core';
+// shop.component.ts
+import { Component, OnInit } from '@angular/core';
 import { ShopService } from "../../../services/shop.service";
 import { Product } from "../../../interfaces/Product";
 import { CATEGORY } from "../../../static-data";
+import { CategoryService } from "../../../services/category.service";
+import { switchMap } from "rxjs/operators";
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent {
-  constructor(private shopService: ShopService) {
+export class ShopComponent implements OnInit {
+  constructor(private shopService: ShopService, private categoryService: CategoryService) {
   }
   products: Product[] = [];
   filteredProducts: Product[] = [];
   categories = CATEGORY;
-
+  selectedCategoryIndex: number = 0;
   ngOnInit() {
-    this.getProducts();
-  }
-
-  filterProducts(event: any) {
-    let category = this.categories[event.index];
-    this.filteredProducts = this.products.filter(p => p.category === category);
-  }
-
-  getProducts() {
-    this.shopService.getProducts().subscribe(products => {
-      this.products = products
-      this.filteredProducts = products;
+    // first get the products
+    this.shopService.getProducts().pipe(
+      // then switch to the category index observable
+      switchMap(products => {
+        // save the products
+        this.products = products;
+        // return the category index observable
+        return this.categoryService.categoryIndex$;
+      })
+    ).subscribe(index => {
+      // filter the products by the category index
+      this.selectedCategoryIndex = index;
+      this.filterProducts(index);
     })
+  }
+
+  filterProducts(index: number) {
+    let category = this.categories[index];
+    this.filteredProducts = this.products.filter(p => p.category === category);
+    this.categoryService.setCategoryIndex(index);
   }
 }

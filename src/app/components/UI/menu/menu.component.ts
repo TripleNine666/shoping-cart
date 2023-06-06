@@ -16,11 +16,6 @@ export class MenuComponent implements OnInit{
   ngOnInit() {
     this.items = [
       {
-        label: "Shopping Cart",
-        icon: "pi pi-shopping-cart",
-        routerLink: "/cart"
-      },
-      {
         label: "Orders History",
         icon: "pi pi-history",
         routerLink: "/order-history"
