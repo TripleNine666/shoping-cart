@@ -1,13 +1,17 @@
 /* Стили для header */
 .header-container {
-  height: 100px;
   background-color: #fbf3ec;
+  height: 100px;
 }
 
 :host::ng-deep .p-toolbar {
   background-color: #fbf3ec;
+  height: 100px;
 }
 
+.user-avatar {
+  cursor: pointer;
+}
 
 :host::ng-deep .p-toolbar .user-icon {
   width: 40px;
@@ -15,8 +19,6 @@
   border-radius: 50%;
   margin-right: 10px;
 }
-
-
 
 /* Стиль для гостевого header */
 :host::ng-deep .p-toolbar .guest-header {
@@ -35,26 +37,19 @@
   font-weight: bold;
 }
 
-
-.header-container {
-  height: 100px;
-}
-
 :host::ng-deep .p-toolbar {
   background-color: #fbf3ec;
 }
 
 
-
-
-
-
-
-
+app-menu {
+  width: 100px;
+}
 
 
 ::ng-deep .cart .p-toolbar {
   background-color: white;
+  height: 100px;
 }
 
 .cart-header-title {

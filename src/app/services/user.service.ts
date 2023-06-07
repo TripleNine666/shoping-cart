@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../interfaces/User";
-import {tap} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {AuthService} from "./auth.service";
 
 @Injectable({
@@ -17,13 +17,22 @@ export class UserService {
 
   usersUrl = 'api/users';
 
-  addEmptyUser(phoneNumber: string){
+  addEmptyUser(phoneNumber: string): Observable<User>{
     const emptyUser = {
       phoneNumber,
       nickname: 'user',
       orderHistory: []
     }
     return this.http.post<User>(this.usersUrl, emptyUser, this.httpOptions).pipe(
+      tap(user => {
+        this.authService.storeUser(user);
+        this.authService.setAuthState(true, user);
+      })
+    )
+  }
+
+  updateUser(userId: number, user: User): Observable<User>{
+    return this.http.put<User>(`${this.usersUrl}/${userId}`, {...user, id: userId }).pipe(
       tap(user => {
         this.authService.storeUser(user);
         this.authService.setAuthState(true, user);

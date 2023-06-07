@@ -1,0 +1,53 @@
+<app-header></app-header>
+  <p-panel header="User Profile" class="profile-panel">
+    <form [formGroup]="userForm" class="profile-form">
+      <div class="">
+
+        <div class="profile-form__flex">
+          <label class="profile-form__nickname__label profile-form-mr" for="nickname">Nickname:</label>
+          <ng-container *ngIf="!editMode; else nicknameInput">
+            <p>{{nickname!.value}}</p>
+          </ng-container>
+          <ng-template #nicknameInput>
+            <input id="nickname" type="text" pInputText formControlName="nickname">
+          </ng-template>
+        </div>
+
+        <div class="profile-form__flex">
+          <label class="profile-form-mr" for="phoneNumber">Phone Number:</label>
+          <ng-container *ngIf="!editMode; else phoneNumberInput">
+            <p>{{phoneNumber!.value}}</p>
+          </ng-container>
+          <ng-template #phoneNumberInput>
+            <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber">
+          </ng-template>
+        </div>
+
+        <div class="profile-form__flex">
+          <label class="profile-form-mr" for="address">Address:</label>
+          <ng-container *ngIf="!editMode; else addressInput">
+            <p>{{address!.value}}</p>
+          </ng-container>
+          <ng-template #addressInput>
+            <input id="address" type="text" pInputText formControlName="address">
+          </ng-template>
+        </div>
+
+      </div>
+    </form>
+
+    <div>
+
+      <ng-container *ngIf="!editMode; else editButtons">
+        <button pButton type="button" label="Edit" (click)="toggleEditMode()"></button>
+      </ng-container>
+
+      <ng-template #editButtons>
+        <button pButton type="button" label="Save" (click)="saveUser()"></button>
+        <button pButton type="button" label="Cancel" (click)="toggleEditMode()" class="p-button-secondary"></button>
+      </ng-template>
+
+    </div>
+  </p-panel>
+
+
