@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
@@ -12,6 +12,7 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
+  @Input() redirectPath?: string;
   @Output() loginSuccess = new EventEmitter<void>();
   SearchCountryField = SearchCountryField;
   CountryISO = CountryISO;
@@ -85,6 +86,9 @@ export class LoginFormComponent {
             detail: `you have successfully logged in`})
           // emit to close dialog window
           this.loginSuccess.emit();
+          if (this.redirectPath) {
+            this.router.navigateByUrl(this.redirectPath).then();
+          }
         },
         error => {
           // обработка неуспешного ответа
