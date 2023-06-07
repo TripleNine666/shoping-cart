@@ -1,0 +1,17 @@
+.menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1;
+}
+
+::ng-deep .menu .p-menu-overlay{
+  position: unset;
+}
+
+.menu-button {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1;
+}
