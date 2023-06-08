@@ -11,5 +11,5 @@
     <div class="item-info">{{order.totalPrice}}</div>
     <div class="item-info">{{order.shipping + order.totalPrice}}</div>
   </div>
-  <p-button *ngIf="isRetryable" label="Retry the order" (click)="orderRetry()"></p-button>
+  <p-button *ngIf="isRetryable" [label]="'pages.order.buttons.retry' | translate" (click)="orderRetry()"></p-button>
 </div>

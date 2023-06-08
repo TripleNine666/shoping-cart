@@ -53,7 +53,7 @@
         <div class="item-info">{{order.shipping + order.totalPrice}}</div>
       </div>
       <p-button
-        label="Go to order"
+        [label]="'pages.order.buttons.go-to-order' | translate"
         styleClass="p-button-text p-button-lg"
         (click)="goToOrder(order)"
       ></p-button>

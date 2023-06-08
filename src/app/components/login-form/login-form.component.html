@@ -1,6 +1,6 @@
 <form class="login-form__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="p-field">
-    <label for="phoneNumber">Номер телефона</label>
+    <label for="phoneNumber">{{'login.phone' | translate}}</label>
     <ngx-intl-tel-input
       class="ngx-intl-tel-input"
       id="phoneNumber"
@@ -17,12 +17,12 @@
       name="phone"
       formControlName="phoneNumber"
     ></ngx-intl-tel-input>
-    <small id="phone-help" class="p-error" *ngIf="phoneNumber!.invalid && phoneNumber!.touched">Неверный формат номера</small>
+    <small id="phone-help" class="p-error" *ngIf="phoneNumber!.invalid && phoneNumber!.touched">{{'login.phone-invalid' | translate}}</small>
   </div>
   <div class="p-field login-form__form__code" *ngIf="codeSent">
-    <label for="code">Код подтверждения</label>
+    <label for="code">{{'login.code' | translate}}</label>
     <input class="login-form__form__code__input" id="code" type="text" pInputText formControlName="code">
-    <small class="p-error" *ngIf="code!.invalid && code!.touched">Неверный код</small>
+    <small class="p-error" *ngIf="code!.invalid && code!.touched">{{'login.code-invalid' | translate}}</small>
   </div>
   <button class="submit-button" type="submit" pButton label="Подтвердить" [disabled]="!codeSent && phoneNumber!.invalid || codeSent && code!.invalid"></button>
 </form>

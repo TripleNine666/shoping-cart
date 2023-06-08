@@ -25,17 +25,17 @@
     <!--  promo Code -->
         <div class="p-inputgroup">
 
-          <input type="text" [(ngModel)]="enteredPromoCode" pInputText placeholder="Promo Сode" />
-          <button type="button" pButton label="Apply" styleClass="p-button-warn" (click)="checkPromoCode()"></button>
+          <input type="text" [(ngModel)]="enteredPromoCode" pInputText [placeholder]="'pages.cart.promo-code' | translate" />
+          <button type="button" pButton [label]="'pages.cart.buttons.apply'|translate" styleClass="p-button-warn" (click)="checkPromoCode()"></button>
         </div>
     <!--  Cost + shipping -->
         <div class="cart-cost-info">
           <div class="cart-cost-info__total">
-            <p>Sab  total:</p>
+            <p>{{'pages.cart.sub-total' | translate}}:</p>
             <p>{{totalPrice | currency}}</p>
           </div>
           <div class="cart-cost-info__shipping">
-            <p>Shipping: </p>
+            <p>{{'pages.cart.shipping' | translate}}: </p>
             <p>{{shippingCost | currency}}</p>
           </div>
           <p-divider></p-divider>
@@ -58,7 +58,10 @@
 
   <!--  IF Cart is empty -->
     <ng-template #emptyCart >
-      <h1 class="empty-cart">Yor cart is empty, please visit our <a routerLink="/shop"> shop</a>!</h1>
+      <h1 class="empty-cart">
+        {{'pages.cart.empty-message.message' | translate}}
+        <a routerLink="/shop"> {{'pages.cart.empty-message.link' | translate}}</a>!
+      </h1>
     </ng-template>
 
   </div>

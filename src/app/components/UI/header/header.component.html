@@ -16,7 +16,7 @@
              <span class="hello">{{ 'UI.header.hello' | translate }}</span><br>
              <span class="user-name">Guest</span>
            </span>
-            <button pButton pRipple type="button" label="Log In" routerLink="/login"></button>
+            <button pButton pRipple type="button" [label]="'UI.header.login'|translate" routerLink="/login"></button>
           </ng-template>
         </div>
         <div class="p-toolbar-group-right">

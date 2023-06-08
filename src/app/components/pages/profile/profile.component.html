@@ -1,10 +1,10 @@
 <app-header></app-header>
-  <p-panel header="User Profile" class="profile-panel">
+  <p-panel [header]="'pages.profile.title' | translate" class="profile-panel">
     <form [formGroup]="userForm" class="profile-form">
       <div>
 
         <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="nickname"><h3>Nickname:</h3></label>
+          <label class="profile-form__label profile-form-mr" for="nickname"><h3>{{'pages.profile.content.nickname' | translate }}:</h3></label>
           <ng-container *ngIf="!editMode; else nicknameInput">
             <p class="profile-form__content">{{nickname!.value}}</p>
           </ng-container>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="phoneNumber"><h3>Phone Number:</h3></label>
+          <label class="profile-form__label profile-form-mr" for="phoneNumber"><h3>{{'pages.profile.content.phone' | translate }}:</h3></label>
           <ng-container *ngIf="!editMode; else phoneNumberInput">
             <p>{{phoneNumber!.value}}</p>
           </ng-container>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="address"><h3>Address:</h3></label>
+          <label class="profile-form__label profile-form-mr" for="address"><h3>{{'pages.profile.content.address' | translate }}:</h3></label>
           <ng-container *ngIf="!editMode; else addressInput">
             <p>{{address!.value}}</p>
           </ng-container>
@@ -39,13 +39,13 @@
     <div>
 
       <ng-container *ngIf="!editMode; else editButtons">
-        <button pButton type="button" label="Edit" (click)="toggleEditMode()"></button>
+        <button pButton type="button" [label]="'pages.profile.buttons.edit' | translate" (click)="toggleEditMode()"></button>
       </ng-container>
 
       <ng-template #editButtons>
         <div class="edit-buttons">
-          <button pButton type="button" label="Save" (click)="saveUser()"></button>
-          <button pButton type="button" label="Cancel" (click)="toggleEditMode()" class="p-button-secondary"></button>
+          <button pButton type="button" [label]="'pages.profile.buttons.save' | translate" (click)="saveUser()"></button>
+          <button pButton type="button" [label]="'pages.profile.buttons.cancel' | translate" (click)="toggleEditMode()" class="p-button-secondary"></button>
         </div>
       </ng-template>
 
