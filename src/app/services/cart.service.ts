@@ -15,7 +15,24 @@ export class CartService {
   private promoCode = new BehaviorSubject<number | null>(null);
   // public promoCode$ = this.promoCode.asObservable();
 
+  private selectedItem = new BehaviorSubject<number>(0);
+  public selectedItem$ = this.selectedItem.asObservable();
+
   constructor() { }
+
+
+
+  updateSelectedItem() {
+    const currentItems = this.cartItems.getValue();
+    let count = 0;
+    for (let item of currentItems) {
+      if (item.isSelected) {
+        count++;
+      }
+    }
+    this.selectedItem.next(count);
+  }
+
 
   addToCart(item: CartItem) {
     const currentItems = this.cartItems.getValue();
@@ -27,12 +44,14 @@ export class CartService {
     }
     this.cartItems.next(currentItems);
     this.updateTotalPrice();
+    this.updateSelectedItem();
   }
 
   updateCart() {
     const currentItems = this.cartItems.getValue();
     this.cartItems.next(currentItems);
     this.updateTotalPrice();
+    this.updateSelectedItem();
   }
 
   removeFromCart(item: CartItem) {
@@ -42,6 +61,7 @@ export class CartService {
       currentItems.splice(index, 1);
       this.cartItems.next(currentItems);
       this.updateTotalPrice();
+      this.updateSelectedItem();
     }
   }
 
@@ -63,7 +83,9 @@ export class CartService {
     const currentPromoCode = this.promoCode.getValue();
     let sum = 0;
     for (let item of currentItems) {
-      sum += item.product.price * item.count;
+      if (item.isSelected) { // добавляем это условие
+        sum += item.product.price * item.count;
+      }
     }
     // учитываем процент скидки при подсчете суммы
     if (currentPromoCode) {
@@ -71,4 +93,5 @@ export class CartService {
     }
     this.totalPrice.next(sum);
   }
+
 }

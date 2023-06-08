@@ -43,10 +43,12 @@
       </div>
   <!--  Price panel-->
       <app-price-panel class="price-panel" [productPrice]="totalPrice+shippingCost">
-        <p total class="price-panel__title">Total: ({{ selectedItem }} items)</p>
+        <p total class="price-panel__title">
+          {{'UI.price-panel.title.total' | translate}}: ({{ selectedItem }} {{'UI.price-panel.title.items' | translate}})
+        </p>
         <p-button
           class="price-panel__button"
-          label="Proceed to checkout"
+          [label]="'UI.price-panel.buttons.proceed-to-checkout' | translate"
           styleClass="p-button-text p-button-lg"
           (click)="confirmOrder()"
         ></p-button>

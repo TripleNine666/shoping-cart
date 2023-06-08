@@ -1,8 +1,8 @@
 export const CATEGORY: string[] = [
-  'Eat',
-  'Drink',
-  'Health',
-  'Gaming',
+  'eat',
+  'drink',
+  'health',
+  'gaming',
 ];
 
 export const PROMO_CODES = [
@@ -14,7 +14,7 @@ export const PROMO_CODES = [
 export const SHIPPING_COST: number = 2.99;
 
 export enum OrderStatus {
-  Completed = "Completed",
-  Cancelled = "Cancelled",
-  New = "New",
+  Completed = "completed",
+  Cancelled = "cancelled",
+  New = "new",
 }

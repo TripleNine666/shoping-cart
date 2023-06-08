@@ -1,0 +1,41 @@
+{
+  "static": {
+    "categories": {
+      "eat": "Еда",
+      "drink": "Напитки",
+      "health": "Здоровье",
+      "gaming": "Игровое"
+    },
+    "order-status": {
+      "completed": "Завершено",
+      "cancelled": "Отмененный",
+      "new": "Новый"
+    }
+  },
+  "UI": {
+    "arrow-back": {
+      "back": "Назад"
+    },
+    "menu": {
+      "orders-history": "Исория заказов",
+      "contacts": "Контакты",
+      "logout": "Выйти"
+    },
+    "header": {
+      "cart": "Корзина",
+      "my-cart": "Моя Корзина",
+      "hello": "Здравствуй",
+      "guest": "Гость"
+    },
+    "price-panel": {
+      "buttons": {
+        "cart": "Добавить",
+        "proceed-to-checkout": "Перейти к оформлению"
+      },
+      "title": {
+        "total": "Всего",
+        "items": "предметов"
+      }
+    }
+  }
+}

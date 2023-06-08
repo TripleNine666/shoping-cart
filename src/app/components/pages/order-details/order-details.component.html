@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div>
-  <div class="order-status">{{order.status}}</div>
+  <div class="order-status">{{ 'static.order-status.' + order.status | translate}}</div>
   <div class="order-item" *ngFor="let item of order.cartItems">
     <div class="order-item__name item-info">{{item.product.name}}</div>
     <div class="order-item__price item-info">{{item.product.price}}</div>

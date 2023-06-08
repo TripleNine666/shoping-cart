@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { JwtModule } from '@auth0/angular-jwt';
@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { PrimengModule } from './primeng/primeng.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./in-memory-data.service";
 
@@ -37,6 +37,17 @@ import { AuthInterceptor } from './auth.interceptor';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
+
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+import { appInitializerFactory } from './app.initializer';
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
+}
 
 
 @NgModule({
@@ -80,15 +91,29 @@ import { ContactsComponent } from './components/pages/contacts/contacts.componen
     RippleModule,
     ReactiveFormsModule,
     MessageModule,
-    NgxIntlTelInputModule
+    NgxIntlTelInputModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService],
+      multi: true
+    },
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

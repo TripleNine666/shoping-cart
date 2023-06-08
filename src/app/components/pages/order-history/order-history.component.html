@@ -11,7 +11,7 @@
         (onClick)="radioClick()"
       ></p-radioButton>
 
-      <label >New</label>
+      <label>{{'static.order-status.new' | translate}}</label>
     </div>
     <div class="flex align-items-center">
 
@@ -23,7 +23,7 @@
         (onClick)="radioClick()"
       ></p-radioButton>
 
-      <label >Completed</label>
+      <label>{{'static.order-status.completed' | translate}}</label>
     </div>
     <div class="flex align-items-center">
 
@@ -35,13 +35,13 @@
         (onClick)="radioClick()"
       ></p-radioButton>
 
-      <label >Canceled</label>
+      <label>{{'static.order-status.cancelled' | translate}}</label>
     </div>
   </div>
 <!--  TODO: TableModule  -->
   <div class="order-history-container">
     <div class="order-container" *ngFor="let order of filteredOrders">
-      <div class="order-status">{{order.status}}</div>
+      <div class="order-status">{{ 'static.order-status.' + order.status | translate}}</div>
       <div class="order-item" *ngFor="let item of order.cartItems">
         <div class="order-item__name item-info">{{item.product.name}}</div>
         <div class="order-item__price item-info">{{item.product.price}}</div>

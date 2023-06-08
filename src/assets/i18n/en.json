@@ -1,0 +1,41 @@
+{
+  "static": {
+    "categories": {
+      "eat": "Eat",
+      "drink": "Drink",
+      "health": "Health",
+      "gaming": "Gaming"
+    },
+    "order-status": {
+      "Completed": "Completed",
+      "Cancelled": "Cancelled",
+      "New": "New"
+    }
+  },
+  "UI": {
+    "arrow-back": {
+      "back": "Back"
+    },
+    "menu": {
+      "orders-history": "Orders History",
+      "contacts": "Contacts",
+      "logout": "Log Out"
+    },
+    "header": {
+      "cart": "Cart",
+      "my-cart": "My Cart",
+      "hello": "Hello",
+      "guest": "Guest"
+    }
+  },
+  "price-panel": {
+    "buttons": {
+      "cart": "Cart",
+      "proceed-to-checkout": "Proceed to checkout"
+    },
+    "title": {
+      "total": "Total",
+      "items": "items"
+    }
+  }
+}

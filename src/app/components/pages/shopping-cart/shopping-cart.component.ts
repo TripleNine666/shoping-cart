@@ -44,6 +44,7 @@ export class ShoppingCartComponent implements OnInit {
       this.productsInCart = items;
     })
     this.cartService.totalPrice$.subscribe(totalPrice => this.totalPrice = totalPrice);
+    this.cartService.selectedItem$.subscribe(selectedItem => this.selectedItem = selectedItem);
   }
 
   onCountChange(item: CartItem, value: number) {
