@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit{
       {
         label: "Contacts",
         icon: 'pi pi-users',
-        routerLink: ""
+        routerLink: "/contacts"
       },
     ]
     if (this.authService.isAuth()) {

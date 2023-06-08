@@ -1,12 +1,12 @@
 <app-header></app-header>
   <p-panel header="User Profile" class="profile-panel">
     <form [formGroup]="userForm" class="profile-form">
-      <div class="">
+      <div>
 
         <div class="profile-form__flex">
-          <label class="profile-form__nickname__label profile-form-mr" for="nickname">Nickname:</label>
+          <label class="profile-form__label profile-form-mr" for="nickname"><h3>Nickname:</h3></label>
           <ng-container *ngIf="!editMode; else nicknameInput">
-            <p>{{nickname!.value}}</p>
+            <p class="profile-form__content">{{nickname!.value}}</p>
           </ng-container>
           <ng-template #nicknameInput>
             <input id="nickname" type="text" pInputText formControlName="nickname">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="profile-form__flex">
-          <label class="profile-form-mr" for="phoneNumber">Phone Number:</label>
+          <label class="profile-form__label profile-form-mr" for="phoneNumber"><h3>Phone Number:</h3></label>
           <ng-container *ngIf="!editMode; else phoneNumberInput">
             <p>{{phoneNumber!.value}}</p>
           </ng-container>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="profile-form__flex">
-          <label class="profile-form-mr" for="address">Address:</label>
+          <label class="profile-form__label profile-form-mr" for="address"><h3>Address:</h3></label>
           <ng-container *ngIf="!editMode; else addressInput">
             <p>{{address!.value}}</p>
           </ng-container>
@@ -43,8 +43,10 @@
       </ng-container>
 
       <ng-template #editButtons>
-        <button pButton type="button" label="Save" (click)="saveUser()"></button>
-        <button pButton type="button" label="Cancel" (click)="toggleEditMode()" class="p-button-secondary"></button>
+        <div class="edit-buttons">
+          <button pButton type="button" label="Save" (click)="saveUser()"></button>
+          <button pButton type="button" label="Cancel" (click)="toggleEditMode()" class="p-button-secondary"></button>
+        </div>
       </ng-template>
 
     </div>

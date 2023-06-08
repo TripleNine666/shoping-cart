@@ -16,6 +16,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
 
 
 
@@ -41,6 +42,7 @@ import { PanelModule } from 'primeng/panel';
     DialogModule,
     RadioButtonModule,
     PanelModule,
+    CardModule
   ],
   exports: [
     ButtonModule,
@@ -58,6 +60,7 @@ import { PanelModule } from 'primeng/panel';
     DialogModule,
     RadioButtonModule,
     PanelModule,
+    CardModule
   ]
 })
 export class PrimengModule { }

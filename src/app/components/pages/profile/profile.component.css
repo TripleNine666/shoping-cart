@@ -11,9 +11,13 @@
   justify-content: center;
 }
 
+.profile-form-container {
+  display: flex;
+}
+
 .profile-form__flex {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin: 16px 0;
 }
@@ -21,6 +25,22 @@
 .profile-form-mr {
   margin-right: 16px;
 }
-.profile-form__nickname__label {
+.profile-form__label {
+  color: #030355;
+  font-weight: bold;
+}
 
+.profile-form__content {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+}
+.edit-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 660px) {
+  .profile-panel {
+    width: 400px;
+  }
 }

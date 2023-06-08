@@ -7,6 +7,7 @@ import { LoginComponent } from "./components/pages/login/login.component";
 import {OrderHistoryComponent} from "./components/pages/order-history/order-history.component";
 import { OrderDetailsComponent } from "./components/pages/order-details/order-details.component";
 import { ProfileComponent } from "./components/pages/profile/profile.component";
+import { ContactsComponent } from "./components/pages/contacts/contacts.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'order-history', component: OrderHistoryComponent },
   { path: 'order-details/:id', component: OrderDetailsComponent },
-  { path: 'contacts', component: ShopComponent },
+  { path: 'contacts', component: ContactsComponent },
   { path: 'profile', component: ProfileComponent },
 ];
 

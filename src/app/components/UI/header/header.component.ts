@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
       distinctUntilChanged()
     ).subscribe(totalPrice => {
       this.totalCartPrice = totalPrice
-      console.log(this.totalCartPrice)
     });
   }
 

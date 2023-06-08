@@ -1,0 +1,26 @@
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.contacts-card {
+  width: 800px;
+}
+
+.card-content-title{
+  color: #030355;
+  font-weight: bold;
+}
+
+.card-obout__content {
+  color: rgba(128, 128, 128, 0.67);
+  font-size: 16px;
+}
+
+@media screen and (max-width: 860px) {
+  .contacts-card {
+    width: 400px;
+  }
+}
