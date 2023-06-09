@@ -9,6 +9,9 @@
   height: 100px;
 }
 
+
+
+
 .user-avatar {
   cursor: pointer;
 }
@@ -55,4 +58,16 @@ app-menu {
 .cart-header-title {
   font-size: 24px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 665px) {
+  :host::ng-deep .p-toolbar .guest-header,
+  :host::ng-deep .p-toolbar .hello,
+  :host::ng-deep .p-toolbar .user-name {
+    font-size: 14px;
+    margin: 0;
+  }
+  .cart-button {
+    font-size: 12px;
+  }
 }

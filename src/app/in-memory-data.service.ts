@@ -96,6 +96,30 @@ export class InMemoryDataService implements InMemoryDbService{
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
         size: '100 cl / 1L',
       },
+      {
+        id: 11,
+        name: 'Крылышки',
+        category: CATEGORY[0],
+        price: 15,
+        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
+      },
+      {
+        id: 12,
+        name: 'Пицца',
+        category: CATEGORY[0],
+        price: 15,
+        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
+      },
+      {
+        id: 13,
+        name: 'Суши',
+        category: CATEGORY[0],
+        price: 20,
+        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        size: '100 cl / 1L',
+      },
     ]
     // ... your existing code for products
 
