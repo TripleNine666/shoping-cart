@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+:host ::ng-deep .p-toast {
+  max-width: 90vw;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
@@ -32,7 +36,7 @@
 
 /* PROMO CODE */
 .p-inputgroup {
-  width: 600px;
+  width: 85vw;
 }
 
 /* cost info */
@@ -40,7 +44,7 @@
 .cart-cost-info {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 85vw;
   color: rgb(128, 128, 128);
 }
 
@@ -80,12 +84,6 @@
 .empty-cart {
   text-align: center;
 }
-
-
-
-
-
-
 
 .phone-form__form {
   display: flex;
@@ -160,22 +158,18 @@
 }
 
 
-
-
-
-
-
-@media (max-width: 649px) {
-  .cart-item {
-    width: 400px;
-  }
-  .p-inputgroup{
-    width: 400px;
-  }
-  .cart-cost-info {
-    width: 400px;
+@media screen and (max-width: 665px) {
+  .product-name,
+  .product-size,
+  .product-price,
+  .product-total {
+    font-size: 12px;
+    margin: 0;
   }
   .price-panel {
-    width: 100%;
+    width: 100vw;
+  }
+  .cart-item {
+    align-self: flex-end;
   }
 }

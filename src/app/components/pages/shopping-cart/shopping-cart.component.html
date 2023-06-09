@@ -9,10 +9,9 @@
       [resizable]="false">
       <app-login-form (loginSuccess)="onLoginSuccess()"></app-login-form>
     </p-dialog>
-
-    <p-toast></p-toast>
     <app-header></app-header>
   <!--  product list -->
+    <p-toast class="toast"></p-toast>
     <div class="cart" *ngIf="productsInCart.length>0; else emptyCart">
       <app-cart-item class="cart-item"
                      *ngFor="let item of productsInCart"

@@ -11,7 +11,7 @@
 .cart-item {
   display: flex;
   height: 170px;
-  width: 500px;
+  width: 80vw;
   border-radius: 20px;
   background-color: #fbf3ec;
   align-items: center;
@@ -101,11 +101,26 @@
 }
 
 @media (max-width: 649px) {
- .cart-item {
- width: 400px;
- }
+   .cart-item {
+   width: 80vw;
+   }
   .img-container {
     height: 100px;
     width: 100px;
+  }
+  .cart-item__info__description__name,
+  .cart-item__info__description__size{
+    font-size: 14px;
+    margin: 0;
+  }
+  .cart-item__info__description__price{
+    font-size: 18px;
+    margin: 0;
+  }
+  .img-container {
+    margin: 0 8px;
+  }
+  .cart-item__info__actions__counter {
+    margin-right: 8px;
   }
 }

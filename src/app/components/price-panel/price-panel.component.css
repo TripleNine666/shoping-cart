@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-@media (max-width: 649px) {
+@media (max-width: 665px) {
   .price-panel{
     width: 100vw;
     left: 0;
