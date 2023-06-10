@@ -3,10 +3,6 @@
   height: 100%;
 }
 
-:host ::ng-deep .p-toast {
-  max-width: 90vw;
-}
-
 .cart {
   display: flex;
   flex-direction: column;
@@ -14,6 +10,10 @@
   align-items: center;
   padding: 16px;
   margin: auto auto 150px
+}
+
+:host ::ng-deep .p-toast {
+  max-width: 90vw;
 }
 
 .cart-item {
@@ -104,53 +104,53 @@
 }
 
 /* В styles.css добавьте следующие стили для ngx-intl-tel-input */
-::ng-deep .ngx-intl-tel-input {
-  display: flex;
-  align-items: center;
-  border: 1px solid #c8c8c8;
-  border-radius: 3px;
-  /* Увеличьте высоту компонента */
-  height: 53px;
-  width: 255px;
-  background: white;
-}
-::ng-deep .ngx-intl-tel-input:focus-within {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: none;
-  border: 2px solid #021374;
-}
+/*::ng-deep .ngx-intl-tel-input {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  border: 1px solid #c8c8c8;*/
+/*  border-radius: 3px;*/
+/*  !* Увеличьте высоту компонента *!*/
+/*  height: 53px;*/
+/*  width: 255px;*/
+/*  background: white;*/
+/*}*/
+/*::ng-deep .ngx-intl-tel-input:focus-within {*/
+/*  outline: 0 none;*/
+/*  outline-offset: 0;*/
+/*  box-shadow: none;*/
+/*  border: 2px solid #021374;*/
+/*}*/
 
-::ng-deep .ngx-intl-tel-input .iti__flag-container {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-}
+/*::ng-deep .ngx-intl-tel-input .iti__flag-container {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  padding: 0.25rem;*/
+/*}*/
 
-::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__selected-flag {
-  margin-right: 0.25rem;
-}
+/*::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__selected-flag {*/
+/*  margin-right: 0.25rem;*/
+/*}*/
 
-::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__arrow {
-  border-color: #333 transparent transparent;
-}
+/*::ng-deep .ngx-intl-tel-input .iti__flag-container .iti__arrow {*/
+/*  border-color: #333 transparent transparent;*/
+/*}*/
 
-::ng-deep .ngx-intl-tel-input .iti__flag-container.open .iti__arrow {
-  border-color: transparent transparent #333;
-}
+/*::ng-deep .ngx-intl-tel-input .iti__flag-container.open .iti__arrow {*/
+/*  border-color: transparent transparent #333;*/
+/*}*/
 
-::ng-deep .ngx-intl-tel-input input[type="tel"] {
-  flex: 1;
-  border: none;
-  outline: none;
-}
+/*::ng-deep .ngx-intl-tel-input input[type="tel"] {*/
+/*  flex: 1;*/
+/*  border: none;*/
+/*  outline: none;*/
+/*}*/
 
 
-/* Уберите несоответствие цветов фона и рамки */
-::ng-deep .ngx-intl-tel-input input[type="tel"],
-::ng-deep .ngx-intl-tel-input .iti__flag-container {
-  background-color: transparent;
-}
+/*!* Уберите несоответствие цветов фона и рамки *!*/
+/*::ng-deep .ngx-intl-tel-input input[type="tel"],*/
+/*::ng-deep .ngx-intl-tel-input .iti__flag-container {*/
+/*  background-color: transparent;*/
+/*}*/
 
 .submit-button {
   margin-top: 16px;

@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+:host ::ng-deep .p-toast {
+  max-width: 90vw;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;

@@ -1,12 +1,16 @@
+:host {
+  background-color: #fbf3ec;
+}
+
 .contacts-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 24px;
+  margin: 24px 0;
 }
 
 .contacts-card {
-  width: 800px;
+  width: 80vw;
 }
 
 .card-content-title{
@@ -20,7 +24,7 @@
 }
 
 @media screen and (max-width: 860px) {
-  .contacts-card {
-    width: 400px;
-  }
+  /*.contacts-card {*/
+  /*  width: 400px;*/
+  /*}*/
 }

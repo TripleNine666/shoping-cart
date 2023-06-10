@@ -36,4 +36,5 @@ export class OrderHistoryComponent implements OnInit {
   radioClick(){
     this.filteredOrders = this.orderHistory.filter(o => o.status === this.statusFilter);
   }
+
 }

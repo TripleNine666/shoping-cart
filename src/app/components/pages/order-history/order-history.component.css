@@ -1,3 +1,9 @@
+.order-history{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .order-history-container {
   display: flex;
   flex-direction: column;
@@ -9,7 +15,7 @@
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  width: 800px;
+  width: 80vw;
   margin: 16px 0;
 }
 

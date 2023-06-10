@@ -46,7 +46,7 @@
 
 
 app-menu {
-  width: 100px;
+  width: 8vw;
 }
 
 
@@ -65,9 +65,12 @@ app-menu {
   :host::ng-deep .p-toolbar .hello,
   :host::ng-deep .p-toolbar .user-name {
     font-size: 14px;
-    margin: 0;
+
   }
   .cart-button {
     font-size: 12px;
+  }
+  app-menu {
+    width: 15vw;
   }
 }

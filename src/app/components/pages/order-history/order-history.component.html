@@ -50,7 +50,7 @@
       <div class="order-item">
         <div class="item-info">{{order.shipping}}</div>
         <div class="item-info">{{order.totalPrice}}</div>
-        <div class="item-info">{{order.shipping + order.totalPrice}}</div>
+        <div class="item-info">{{(order.shipping + order.totalPrice).toFixed(2)}}</div>
       </div>
       <p-button
         [label]="'pages.order.buttons.go-to-order' | translate"
