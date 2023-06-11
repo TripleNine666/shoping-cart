@@ -4,7 +4,7 @@ import { ShopService } from "../../../services/shop.service";
 import { Product } from "../../../interfaces/Product";
 import { CATEGORY } from "../../../static-data";
 import { CategoryService } from "../../../services/category.service";
-import { switchMap } from "rxjs/operators";
+import {switchMap, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-shop',
@@ -25,10 +25,11 @@ export class ShopComponent implements OnInit {
       switchMap(products => {
         // save the products
         this.products = products;
+        this.filteredProducts = products;
         // return the category index observable
         return this.categoryService.categoryIndex$;
       })
-    ).subscribe(index => {
+    ).pipe(take(1)).subscribe(index => {
       // filter the products by the category index
       this.selectedCategoryIndex = index;
       this.filterProducts(index);
@@ -37,7 +38,7 @@ export class ShopComponent implements OnInit {
 
   filterProducts(index: number) {
     let category = this.categories[index];
+    this.selectedCategoryIndex = index;
     this.filteredProducts = this.products.filter(p => p.category === category);
-    this.categoryService.setCategoryIndex(index);
   }
 }

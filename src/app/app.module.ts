@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER  } from '@angular/core';
+import { NgModule, APP_INITIALIZER, isDevMode  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { JwtModule } from '@auth0/angular-jwt';
@@ -42,6 +42,7 @@ import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 import { appInitializerFactory } from './app.initializer';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -98,6 +99,12 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [
