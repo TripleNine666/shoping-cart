@@ -45,25 +45,25 @@
     <p-table class="order-container" [value]="filteredOrders">
       <ng-template pTemplate="header">
         <tr>
-          <th>Img</th>
-          <th>Product name</th>
-          <th>Price</th>
-          <th>Amount</th>
-          <th>Size</th>
+          <th>{{'pages.history.image' | translate}}</th>
+          <th>{{'pages.history.product-name' | translate}}</th>
+          <th>{{'pages.history.price' | translate}}</th>
+          <th>{{'pages.history.amount' | translate}}</th>
+          <th>{{'pages.history.size' | translate}}</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-order>
         <tr *ngFor="let item of order.cartItems">
           <td><img src="{{item.product.img}}" alt="{{item.product.name}}" width="100" class="shadow-4" /></td>
           <td>{{item.product.name}}</td>
-          <td>{{item.product.price}}</td>
+          <td>{{item.product.price | currency}}</td>
           <td>{{item.count}}</td>
           <td>{{item.product.size}}</td>
         </tr>
         <tr>
-          <td colspan="2">Shipping: {{order.shipping}}</td>
-          <td colspan="2">Total Price: {{(order.shipping + order.totalPrice).toFixed(2)}}</td>
-          <td>{{order.status}}</td>
+          <td colspan="2">{{'pages.history.shipping' | translate}}: {{order.shipping | currency}}</td>
+          <td colspan="2">{{'pages.history.total' | translate}}: {{(order.shipping + order.totalPrice).toFixed(2) | currency}}</td>
+          <td>{{'static.order-status.' + order.status | translate}}</td>
         </tr>
         <tr>
           <td colspan="5">

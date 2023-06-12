@@ -19,7 +19,8 @@
     "menu": {
       "orders-history": "Orders History",
       "contacts": "Contacts",
-      "logout": "Log Out"
+      "logout": "Log Out",
+      "change-language": "Change to Russian"
     },
     "header": {
       "cart": "Cart",
@@ -93,6 +94,15 @@
       "buttons": {
         "apply": "Apply"
       }
+    },
+    "history": {
+      "image": "Image",
+      "product-name": "Product name",
+      "price": "Price",
+      "amount": "Amount",
+      "size": "Size",
+      "shipping": "Shipping",
+      "total": "Total price"
     }
   },
   "login": {

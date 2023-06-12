@@ -33,5 +33,11 @@
   margin: 0 32px;
 }
 
+@media screen and (max-width: 715px){
+  .order-container {
+    width: 95vw;
+  }
+}
+
 
 

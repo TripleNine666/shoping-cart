@@ -19,7 +19,8 @@
     "menu": {
       "orders-history": "Исория заказов",
       "contacts": "Контакты",
-      "logout": "Выйти"
+      "logout": "Выйти",
+      "change-language": "Перейти на Английский"
     },
     "header": {
       "cart": "Корзина",
@@ -93,6 +94,15 @@
       "buttons": {
         "apply": "Применить"
       }
+    },
+    "history": {
+      "image": "Изображение",
+      "product-name": "Название продукта",
+      "price": "Цена",
+      "amount": "Количество",
+      "size": "Размер",
+      "shipping": "Доставка",
+      "total": "Общая цена"
     }
   },
   "login": {
