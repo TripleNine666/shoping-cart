@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER, isDevMode  } from '@angular/core';
+import { NgModule, APP_INITIALIZER  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { JwtModule } from '@auth0/angular-jwt';
@@ -101,11 +101,12 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      // production false
+      enabled: false,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
   ],
   providers: [
     {
