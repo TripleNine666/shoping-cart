@@ -18,110 +18,95 @@ export class InMemoryDataService implements InMemoryDbService{
     const products: Product[] = [
       {
         id: 1,
-        name: 'Виски',
+        name: 'Jack Daniels',
         category: CATEGORY[1],
-        price: 10,
+        price: 15,
         img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG132.png',
         size: '100 cl / 1L',
+        description: "This is the most titled whiskey from the entire line. The drink has been awarded prestigious prizes at international competitions and exhibitions many times. It is believed that this is one of the most elegant corn whiskey from the entire line of the brand.\n" +
+          "\n" +
+          "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
       },
       {
         id: 2,
-        name: 'Коньяк',
+        name: 'Modelo Negra',
         category: CATEGORY[1],
-        price: 5,
-        img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG122.png',
-        size: '50 cl / 500ml',
+        price: 12,
+        img: '../../assets/img/ModeloNegra.png',
+        size: '35.5 cl / 355ml',
+        description: "Translated from Spanish, Negra means \"dark\", and Modelo is part of the manufacturer's name — Grupo Modelo. Negra Modelo has a rich light creamy taste due to the higher content of malt and hops than in other varieties, as well as special yeast and caramel-chocolate flavor, which is why it was deservedly dubbed La crema de la cerveza, which means \"Beer of all beers\". The only producer and global exporter of Negra Modelo beer is the Mexican company Grupo Modelo.\n"
+
       },
       {
         id: 3,
-        name: 'Крылышки',
-        category: CATEGORY[0],
-        price: 15,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
+        name: 'Bai Dragon Fruit',
+        category: CATEGORY[1],
+        price: 4,
+        img: '../../assets/img/Cocount.png',
+        size: '50 cl / 500ml',
+        description: "Pack your amazingly refreshing fruit flavors, we’ll leave tonight. We’re talking dragon fruit and passion fruit flavors here. On the scale of one-to-cloud nine, this one’s an 11. A little tart, a little sweet, and a whole lot of delicious in every sip. This tropical tour-de-force is bursting with flavor, but without any of those annoying artificial sweeteners that probably wouldn’t fit in your suitcase anyway. You couldn’t get any closer to drinking an island vacation if you tried. Which is good, because it turns out putting one of those little umbrellas in every bottle is really hard. Trust us, we tried."
       },
       {
         id: 4,
-        name: 'Пицца',
-        category: CATEGORY[0],
-        price: 15,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        name: 'Fanta',
+        category: CATEGORY[1],
+        price: 2,
+        img: 'https://pngimg.com/uploads/fanta/small/fanta_PNG63.png',
         size: '100 cl / 1L',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
       {
         id: 5,
-        name: 'Суши',
+        name: 'Susi',
         category: CATEGORY[0],
-        price: 20,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        price: 15,
+        img: 'https://pngimg.com/uploads/sushi/small/sushi_PNG98834.png',
         size: '100 cl / 1L',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
       {
         id: 6,
-        name: 'Аливария',
+        name: 'Sprite',
         category: CATEGORY[1],
-        price: 10,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        price: 3,
+        img: 'https://pngimg.com/uploads/sprite/small/sprite_PNG98780.png',
         size: '100 cl / 1L',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
       {
         id: 7,
-        name: 'Жигуль',
+        name: 'Pepsi',
         category: CATEGORY[1],
         price: 5,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
+        img: 'https://pngimg.com/uploads/pepsi/small/pepsi_PNG8950.png',
+        size: '33 cl / 330ml',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
       {
         id: 8,
-        name: 'Крылышки',
+        name: 'KFC',
         category: CATEGORY[0],
         price: 15,
         img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
+        size: '33 cl / 330ml',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
       {
         id: 9,
-        name: 'Пицца',
+        name: 'Pizza',
         category: CATEGORY[0],
         price: 15,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+        img: 'http://pngimg.com/uploads/pizza/small/pizza_PNG44082.png',
         size: '100 cl / 1L',
-      },
-      {
-        id: 10,
-        name: 'Суши',
-        category: CATEGORY[0],
-        price: 20,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
-      },
-      {
-        id: 11,
-        name: 'Крылышки',
-        category: CATEGORY[0],
-        price: 15,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
-      },
-      {
-        id: 12,
-        name: 'Пицца',
-        category: CATEGORY[0],
-        price: 15,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
-      },
-      {
-        id: 13,
-        name: 'Суши',
-        category: CATEGORY[0],
-        price: 20,
-        img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
-        size: '100 cl / 1L',
+        description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
       },
     ]
-    // ... your existing code for products
 
     const users: User[] = [
       {
@@ -138,23 +123,27 @@ export class InMemoryDataService implements InMemoryDbService{
               {
                 count: 1,
                 product: {
-                  id: 2,
-                  name: 'Коньяк',
+                  id: 1,
+                  name: 'Jack Daniels',
                   category: CATEGORY[1],
-                  price: 5,
-                  img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG122.png',
-                  size: '50 cl / 500ml',
+                  price: 15,
+                  img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG132.png',
+                  size: '100 cl / 1L',
+                  description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
                 }
               },
               {
                 count: 3,
                 product: {
                   id: 5,
-                  name: 'Суши',
+                  name: 'Susi',
                   category: CATEGORY[0],
-                  price: 20,
-                  img: 'https://pngimg.com/uploads/kfc_food/small/kfc_food_PNG67.png',
+                  price: 15,
+                  img: 'https://pngimg.com/uploads/sushi/small/sushi_PNG98834.png',
                   size: '100 cl / 1L',
+                  description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
                 }
               },
             ]
@@ -168,12 +157,14 @@ export class InMemoryDataService implements InMemoryDbService{
               {
                 count: 3,
                 product: {
-                  id: 1,
-                  name: 'Виски',
+                  id: 2,
+                  name: 'Modelo Negra',
                   category: CATEGORY[1],
-                  price: 10,
-                  img: 'https://pngimg.com/uploads/whisky/small/whisky_PNG132.png',
-                  size: '100 cl / 1L',
+                  price: 12,
+                  img: '../../assets/img/ModeloNegra.png',
+                  size: '35.5 cl / 355ml',
+                  description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
+
                 }
               }
             ]
