@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import {SHIPPING_COST, PROMO_CODES} from "../../../static-data";
 import {OrderService} from "../../../services/order.service";
 import {AuthService} from "../../../services/auth.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,6 +18,7 @@ export class ShoppingCartComponent implements OnInit {
               private messageService: MessageService,
               private orderService: OrderService,
               private authService: AuthService,
+              private translate: TranslateService,
   ) {
   }
   productsInCart: CartItem[] = [];
@@ -66,34 +68,32 @@ export class ShoppingCartComponent implements OnInit {
 
     if (!promoCode) {
       this.messageService.add({ severity: 'error',
-        summary: 'Error',
-        detail: `The entered Promo Code: "${this.enteredPromoCode}" is incorrect!`})
+        summary: this.translate.instant('messages.error.error'),
+        detail: this.translate.instant('messages.error.promo-code.detail')})
       return;
     }
     switch (promoCode.type) {
       case 'delivery':
         this.shippingCost = promoCode.value;
         this.messageService.add({ severity: 'success',
-          summary: 'Free Shipping',
-          detail: `The entered Promo Code: "${this.enteredPromoCode}" is activate!`})
+          summary: this.translate.instant('messages.success.promo-code.delivery.summary'),
+          detail: this.translate.instant('messages.success.promo-code.detail')})
         break;
       case 'discount':
         this.cartService.applyPromoCode(promoCode.value)
         this.messageService.add({ severity: 'success',
-          summary: 'Discount activate',
-          detail: `The entered Promo Code: "${this.enteredPromoCode}" is activate! \n
-          You now have a ${promoCode.value} discount %`})
+          summary: this.translate.instant('messages.success.promo-code.discount.summary'),
+          detail: this.translate.instant('messages.success.promo-code.detail')})
     }
   }
 
   confirmOrder() {
     const selectedItems = this.productsInCart.filter(product => product.isSelected === true)
     if (this.authService.isAuth()){
-      this.orderService.addOrder(selectedItems, this.shippingCost, this.totalPrice).subscribe(user => {
-        console.log(user);
+      this.orderService.addOrder(selectedItems, this.shippingCost, this.totalPrice).subscribe(() => {
         this.messageService.add({ severity: 'success',
-          summary: 'Your order received!',
-          detail: "Please wait for confirmation by phone",
+          summary: this.translate.instant('messages.success.phone.order'),
+          detail: this.translate.instant('messages.success.phone.detail'),
         })
         this.cartService.clearCart();
         this.discount = 0;

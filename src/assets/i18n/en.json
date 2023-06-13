@@ -110,5 +110,32 @@
     "phone-invalid": "Invalid number format",
     "code": "Confirmation code",
     "code-invalid": "Invalid code"
+  },
+  "messages": {
+    "success": {
+      "success": "Success",
+      "promo-code": {
+        "delivery": {
+          "summary": "Free Shipping"
+        },
+        "discount": {
+          "summary": "Discount activate"
+        },
+        "detail": "The entered Promo Code is activate!"
+      },
+      "phone": {
+        "code": "Code received",
+        "order": "Your order received!",
+        "detail": "To view the order details, you can go to the order history",
+        "login": "You have successfully logged in!"
+      }
+    },
+    "error": {
+      "error": "Error",
+      "promo-code": {
+        "detail": "The entered Promo Code: is incorrect!"
+      },
+      "code": "Incorrect code"
+    }
   }
 }

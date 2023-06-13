@@ -105,7 +105,7 @@ export class InMemoryDataService implements InMemoryDbService{
         size: '100 cl / 1L',
         description: "The drink has a bright aroma of burnt caramel, tobacco and dried fruits. The taste has hints of vanilla toffee and wood. Whiskey leaves a \"long-lasting\" aftertaste, characteristic only of corn-based spirits. Even a small sip of the drink gives a pleasant warmth."
 
-      },
+      }
     ]
 
     const users: User[] = [

@@ -5,6 +5,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {MessageService} from "primeng/api";
 import { SearchCountryField, CountryISO  } from 'ngx-intl-tel-input';
 import {UserService} from "../../services/user.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-login-form',
@@ -18,14 +19,14 @@ export class LoginFormComponent {
   CountryISO = CountryISO;
 
 
-  codeSent = false; // свойство для отслеживания состояния отправки кода
-  errorMessage = ''; // свойство для отображения сообщения об ошибке
+  codeSent = false;
 
   constructor(private authService: AuthService,
               private router: Router,
               private fb: FormBuilder,
               private messageService: MessageService,
               private userService: UserService,
+              private translate: TranslateService,
   ) { }
 
   loginForm = this.fb.group({
@@ -50,40 +51,35 @@ export class LoginFormComponent {
   ngOnInit(): void {
   }
 
-  // метод для отправки формы
   onSubmit(): void {
     const phoneNumber = this.phoneNumber!.value!.number;
     const code = Number(this.loginForm.get('code')?.value);
     if (!code) {
-      // вызов метода сервиса для отправки кода на номер телефона
       this.authService.sendCode(phoneNumber).subscribe(
         response => {
           if (!response.userExists) {
             this.userService.addEmptyUser(phoneNumber).subscribe(user => console.log(user))
           }
           console.log(response.code);
-          this.codeSent = true; // установка флага отправки кода
+          this.codeSent = true;
           this.messageService.add({ severity: 'success',
-            summary: 'Success',
-            detail: `Code received`})
+            summary: this.translate.instant('messages.success.success'),
+            detail: this.translate.instant('messages.success.phone.code')})
         },
         error => {
-          // обработка неуспешного ответа
           console.log(error);
           this.messageService.add({ severity: 'error',
-            summary: 'Error',
+            summary: this.translate.instant('messages.error.error'),
             detail: `Phone error`})
         }
       );
     } else {
-      // вызов метода сервиса для проверки кода и получения токена
       this.authService.verifyCode(phoneNumber, code).subscribe(
         resp => {
-          // обработка успешного ответа
           console.log(resp)
           this.messageService.add({ severity: 'success',
-            summary: 'Success',
-            detail: `you have successfully logged in`})
+            summary: this.translate.instant('messages.success.success'),
+            detail: this.translate.instant('messages.success.phone.login')})
           // emit to close dialog window
           this.loginSuccess.emit();
           if (this.redirectPath) {
@@ -91,11 +87,10 @@ export class LoginFormComponent {
           }
         },
         error => {
-          // обработка неуспешного ответа
           console.log(error);
           this.messageService.add({ severity: 'error',
-            summary: 'Error',
-            detail: `Code Error`})
+            summary: this.translate.instant('messages.error.error'),
+            detail: this.translate.instant('messages.error.code')})
         }
       );
     }
