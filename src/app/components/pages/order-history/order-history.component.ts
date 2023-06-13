@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../../services/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../../services/auth.service";
 import {Order} from "../../../interfaces/Order";
 import {Router} from "@angular/router";
-import { OrderStatus } from "../../../static-data";
+import {OrderStatus} from "../../../static-data";
 
 @Component({
   selector: 'app-order-history',
@@ -35,6 +35,17 @@ export class OrderHistoryComponent implements OnInit {
 
   radioClick(){
     this.filteredOrders = this.orderHistory.filter(o => o.status === this.statusFilter);
+  }
+
+  getSeverity(status: OrderStatus) {
+    switch (status) {
+      case OrderStatus.New:
+        return 'info';
+      case OrderStatus.Completed:
+        return 'success';
+      case OrderStatus.Cancelled:
+        return 'danger';
+    }
   }
 
 }

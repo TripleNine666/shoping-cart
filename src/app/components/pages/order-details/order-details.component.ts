@@ -27,4 +27,15 @@ export class OrderDetailsComponent implements OnInit{
       this.isRetryable = false;
     })
   }
+
+  getSeverity(status: OrderStatus) {
+    switch (status) {
+      case OrderStatus.New:
+        return 'info';
+      case OrderStatus.Completed:
+        return 'success';
+      case OrderStatus.Cancelled:
+        return 'danger';
+    }
+  }
 }

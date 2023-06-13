@@ -18,6 +18,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 
 
 
@@ -44,7 +45,8 @@ import { TableModule } from 'primeng/table';
     RadioButtonModule,
     PanelModule,
     CardModule,
-    TableModule
+    TableModule,
+    TagModule
   ],
   exports: [
     ButtonModule,
@@ -63,7 +65,8 @@ import { TableModule } from 'primeng/table';
     RadioButtonModule,
     PanelModule,
     CardModule,
-    TableModule
+    TableModule,
+    TagModule
   ]
 })
 export class PrimengModule { }

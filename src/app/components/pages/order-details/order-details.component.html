@@ -1,37 +1,40 @@
 <app-header></app-header>
 <div>
   <p-table [value]="order.cartItems">
+
     <ng-template pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
-        Order Status:
-        <div>{{order.status}}</div>
+        {{'pages.history.status' | translate}}:
+        <p-tag [value]="'static.order-status.' + order.status | translate" [severity]="getSeverity(order.status)"></p-tag>
       </div>
     </ng-template>
+
     <ng-template pTemplate="header">
       <tr>
-        <th>Image</th>
-        <th>Product name</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Size</th>
+        <th>{{'pages.history.image' | translate}}</th>
+        <th>{{'pages.history.product-name' | translate}}</th>
+        <th>{{'pages.history.price' | translate}}</th>
+        <th>{{'pages.history.amount' | translate}}</th>
+        <th>{{'pages.history.size' | translate}}</th>
       </tr>
     </ng-template>
+
     <ng-template pTemplate="body" let-item>
       <tr>
-        <td><img src="{{item.product.img}}" alt="{{item.product.name}}" width="100" class="shadow-4" /></td>
         <td>{{item.product.name}}</td>
-        <td>{{item.product.price | currency}}</td>
+        <td><img src="{{item.product.img}}" alt="{{item.product.name}}" width="100" class="shadow-4" /></td>
+        <td>{{item.product.price | currency:'USD'}}</td>
         <td>{{item.count}}</td>
         <td>{{item.product.size}}</td>
       </tr>
     </ng-template>
-    <ng-template pTemplate="footer">
-      <tr>
-        <td colspan="4">Shipping price: {{order.shipping}}</td>
-        <td>Total price: {{(order.shipping + order.totalPrice).toFixed(2) | currency}}</td>
-      </tr>
+
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        <div>{{'pages.history.shipping' | translate}}: {{order.shipping | currency}}</div>
+        <div>{{'pages.history.total' | translate}}: {{(order.shipping + order.totalPrice).toFixed(2) | currency}}</div>
+        <p-button *ngIf="isRetryable" [label]="'pages.order.buttons.retry' | translate" (click)="orderRetry()"></p-button>
+      </div>
     </ng-template>
   </p-table>
-
-  <p-button *ngIf="isRetryable" [label]="'pages.order.buttons.retry' | translate" (click)="orderRetry()"></p-button>
 </div>

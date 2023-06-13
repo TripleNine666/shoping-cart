@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+p-tag {
+  margin-left: 12px;
+}
+
 .order-container {
   display: flex;
   flex-direction: column;
