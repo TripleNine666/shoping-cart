@@ -31,11 +31,6 @@ export class ShoppingCartComponent implements OnInit {
   totalPrice = 0;
   selectedItem = 0;
 
-  // Discount in %
-  discount = 0;
-
-
-
   shippingCost: number = SHIPPING_COST;
   promoCodes = PROMO_CODES;
 
@@ -96,7 +91,6 @@ export class ShoppingCartComponent implements OnInit {
           detail: this.translate.instant('messages.success.phone.detail'),
         })
         this.cartService.clearCart();
-        this.discount = 0;
       })
     } else {
       this.dialogVisible = true;

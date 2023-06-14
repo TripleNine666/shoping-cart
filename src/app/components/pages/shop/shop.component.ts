@@ -37,6 +37,7 @@ export class ShopComponent implements OnInit {
   }
 
   filterProducts(index: number) {
+    this.categoryService.setCategoryIndex(index);
     let category = this.categories[index];
     this.selectedCategoryIndex = index;
     this.filteredProducts = this.products.filter(p => p.category === category);

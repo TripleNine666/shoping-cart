@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from "rxjs";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  private categoryIndex = new Subject<number>(); // default index
+  private categoryIndex = new BehaviorSubject<number>(0);
   categoryIndex$ = this.categoryIndex.asObservable();
 
   setCategoryIndex(index: number) {
-    console.log('ох')
-    console.log(index)
     this.categoryIndex.next(index);
   }
 }
