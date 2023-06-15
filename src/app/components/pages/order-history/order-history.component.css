@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.statuses {
+  margin: 16px 0;
+}
+
 p-tag {
   margin-left: 12px;
 }

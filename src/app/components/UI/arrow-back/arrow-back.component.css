@@ -1,7 +1,7 @@
-.arrow-back {
-  position: fixed;
-  top: 22px;
-}
+/*.arrow-back {*/
+/*  position: fixed;*/
+/*  top: 22px;*/
+/*}*/
 
 ::ng-deep .p-button.p-button-link {
   color: rgba(128, 128, 128, 0.85);

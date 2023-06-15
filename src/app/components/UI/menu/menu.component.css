@@ -1,17 +1,17 @@
-.menu {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  z-index: 10;
-}
+/*.menu {*/
+/*  position: fixed;*/
+/*  top: 80px;*/
+/*  right: 20px;*/
+/*  z-index: 10;*/
+/*}*/
 
-::ng-deep .menu .p-menu-overlay{
-  position: unset;
-}
+/*::ng-deep .menu .p-menu-overlay{*/
+/*  position: unset;*/
+/*}*/
 
-.menu-button {
-  position: fixed;
-  top: 22px;
-  right: 20px;
-  z-index: 10;
-}
+/*.menu-button {*/
+/*  position: fixed;*/
+/*  top: 22px;*/
+/*  right: 20px;*/
+/*  z-index: 10;*/
+/*}*/

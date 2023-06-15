@@ -4,6 +4,12 @@
   height: 100px;
 }
 
+.header-container__fixed{
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
 :host::ng-deep .p-toolbar {
   background-color: #fbf3ec;
   height: 100px;
@@ -46,7 +52,7 @@
 
 
 app-menu {
-  width: 8vw;
+  margin: 0 1vw;
 }
 
 

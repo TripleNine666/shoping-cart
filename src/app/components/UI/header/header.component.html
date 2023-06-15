@@ -1,5 +1,5 @@
 <div *ngIf="route.url | async as url" class="header-container">
-  <div *ngIf="url[0].path === 'shop'">
+  <div *ngIf="url[0].path === 'shop'" class="header-container__fixed">
     <!-- Шаблон для header -->
     <div >
       <p-toolbar >
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div *ngIf="url[0].path === 'cart'">
+  <div *ngIf="url[0].path === 'cart'" class="header-container__fixed">
     <!-- Шаблон для header-cart -->
     <p-toolbar class="cart">
       <app-arrow-back class="p-toolbar-group-start"></app-arrow-back>
@@ -38,7 +38,7 @@
     </p-toolbar>
   </div>
 
-  <div *ngIf="url[0].path !== 'shop' && url[0].path !== 'cart'">
+  <div *ngIf="url[0].path !== 'shop' && url[0].path !== 'cart'" class="header-container__fixed">
     <!-- Шаблон для header-details -->
     <p-toolbar>
       <app-arrow-back class="p-toolbar-group-left"></app-arrow-back>
