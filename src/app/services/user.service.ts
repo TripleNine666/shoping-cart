@@ -17,20 +17,6 @@ export class UserService {
 
   usersUrl = 'api/users';
 
-  addEmptyUser(phoneNumber: string): Observable<User>{
-    const emptyUser = {
-      phoneNumber,
-      nickname: 'user',
-      orderHistory: []
-    }
-    return this.http.post<User>(this.usersUrl, emptyUser, this.httpOptions).pipe(
-      tap(user => {
-        this.authService.storeUser(user);
-        this.authService.setAuthState(true, user);
-      })
-    )
-  }
-
   updateUser(userId: number, user: User): Observable<User>{
     return this.http.put<User>(`${this.usersUrl}/${userId}`, {...user, id: userId }).pipe(
       tap(user => {

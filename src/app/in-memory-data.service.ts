@@ -190,19 +190,17 @@ export class InMemoryDataService implements InMemoryDbService{
   // Method to send a verification code to the phone number
   private sendCode(reqInfo: RequestInfo) {
     // Get the phone number from the request body
-    const phoneNumber = reqInfo.utils.getJsonBody(reqInfo.req).phoneNumber;
-
-    const user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
+    // const phoneNumber = reqInfo.utils.getJsonBody(reqInfo.req).phoneNumber;
 
     // Generate a random code
-    const code = Math.floor(Math.random() * 10000);
+    const code = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
     // Save the code in the verificationCode property
     this.verificationCode = code;
     // Return a response with the code and a message
     return reqInfo.utils.createResponse$(() => {
       const options: any = {
         status: 200,
-        body: {code, message: 'Verification code sent', userExists: !!user},
+        body: {code, message: 'Verification code sent'},
         headers: reqInfo.headers,
         url: reqInfo.url,
       };
@@ -212,31 +210,17 @@ export class InMemoryDataService implements InMemoryDbService{
 
   // Method to verify the code and get a JWT token
   private verifyCode(reqInfo: RequestInfo) {
-    // Get the phone number and the code from the request body
+    // Get the code from the request body
     const code = Number(reqInfo.utils.getJsonBody(reqInfo.req).code);
-    const phoneNumber = reqInfo.utils.getJsonBody(reqInfo.req).phoneNumber;
     // Check if the code matches the verificationCode property
     if (code === this.verificationCode) {
-      // Find the user with the matching phone number in the users array
-      let user = this.createDb().users.find(u => u.phoneNumber === phoneNumber);
-      // Check if the user exists
-      if (!user) {
-        user = {
-          id: this.genId(this.createDb().users),
-          nickname: 'user',
-          phoneNumber,
-          orderHistory: []
-        };
-        this.createDb().users.push(user);
-        console.log(this.createDb().users)
-      }
 
       const token = Math.random().toString(36).substring(2);
       // Return a response with the token, user and a message
       return reqInfo.utils.createResponse$(() => {
         const options: any = {
           status: 200,
-          body: { token, user, message: 'Verification successful' },
+          body: { token, message: 'Verification successful' },
           headers: reqInfo.headers,
           url: reqInfo.url,
         };

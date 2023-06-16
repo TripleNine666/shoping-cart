@@ -57,9 +57,6 @@ export class LoginFormComponent {
     if (!code) {
       this.authService.sendCode(phoneNumber).subscribe(
         response => {
-          if (!response.userExists) {
-            this.userService.addEmptyUser(phoneNumber).subscribe(user => console.log(user))
-          }
           console.log(response.code);
           this.codeSent = true;
           this.messageService.add({ severity: 'success',

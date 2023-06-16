@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit{
               private fb: FormBuilder
   ) { }
 
-  userId: number = 0;
 
   userForm = this.fb.group({
     nickname: ['', Validators.required],
@@ -38,7 +37,6 @@ export class ProfileComponent implements OnInit{
   editMode: boolean = false; // the current mode
 
   ngOnInit() {
-    this.userId = this.authService.getUser().id;
     this.userForm.patchValue(this.authService.getUser());
     console.log(this.userForm);
     this.editMode = false; // set the initial mode to view
@@ -54,8 +52,9 @@ export class ProfileComponent implements OnInit{
 
   // update the user using authService and switch to view mode
   saveUser(): void {
-    console.log(this.userForm.value)
-    this.userService.updateUser(this.userId, this.userForm.value as User).subscribe(user => {
+    const currentUser = this.authService.getUser();
+    const updatedUser = {...this.userForm.value, orderHistory: currentUser.orderHistory};
+    this.userService.updateUser(currentUser.id, updatedUser as User).subscribe(user => {
       this.userForm.patchValue(user);
       this.editMode = false;
     });

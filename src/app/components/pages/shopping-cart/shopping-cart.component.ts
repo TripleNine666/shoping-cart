@@ -27,7 +27,6 @@ export class ShoppingCartComponent implements OnInit {
   // dialog is visible
   dialogVisible = false;
 
-
   totalPrice = 0;
   selectedItem = 0;
 
