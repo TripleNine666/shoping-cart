@@ -13,6 +13,9 @@
     }
   },
   "UI": {
+    "remove-cart": {
+      "remove": "(Remove {{cartLen}})"
+    },
     "arrow-back": {
       "back": "Back"
     },
@@ -41,6 +44,9 @@
     }
   },
   "pages": {
+    "shop": {
+      "size": "Size"
+    },
     "order": {
         "buttons": {
           "go-to-order": "Go to order",

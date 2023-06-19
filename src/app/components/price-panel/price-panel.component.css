@@ -34,7 +34,7 @@
 
 .price-panel__actions{
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   margin-right: 32px;
   align-items: center;
   justify-content: center;

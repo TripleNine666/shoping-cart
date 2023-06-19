@@ -14,7 +14,7 @@
           <ng-template #guestTemplate>
            <span class="guest-header">
              <span class="hello">{{ 'UI.header.hello' | translate }}</span><br>
-             <span class="user-name">Guest</span>
+             <span class="user-name">{{ 'UI.header.guest' | translate }}</span>
            </span>
             <button class="cart-button" pButton pRipple type="button" [label]="'UI.header.login'|translate" routerLink="/login"></button>
           </ng-template>
@@ -33,7 +33,7 @@
       <app-arrow-back class="p-toolbar-group-start"></app-arrow-back>
       <div class="cart-header-title">{{ 'UI.header.my-cart' | translate }}</div>
       <div class="p-toolbar-group-end">
-        <app-menu></app-menu>
+        <app-remove-cart [cartLen]="cartLen"></app-remove-cart>
       </div>
     </p-toolbar>
   </div>

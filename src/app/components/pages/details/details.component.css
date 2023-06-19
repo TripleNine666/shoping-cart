@@ -120,12 +120,14 @@
 
 
 @media screen and (max-width: 665px) {
-  .product-name,
+
   .product-size,
-  .description h2,
   .description p {
     font-size: 14px;
-    margin: 0;
+  }
+  .product-name,
+  .description h2{
+    font-size: 20px;
   }
   .product-detail-container,
   .product-info,

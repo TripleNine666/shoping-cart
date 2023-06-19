@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { AuthService } from "../../../services/auth.service";
 import {User} from "../../../interfaces/User";
 import { Subscription } from 'rxjs';
@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
               public route: ActivatedRoute,
               private cartService: CartService,
   ) {}
+  @Input() cartLen: number = 0;
 
 
   isAuth: boolean = false;

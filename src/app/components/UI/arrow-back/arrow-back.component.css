@@ -3,8 +3,12 @@
 /*  top: 22px;*/
 /*}*/
 
-::ng-deep .p-button.p-button-link {
-  color: rgba(128, 128, 128, 0.85);
+/*::ng-deep .p-button.p-button-link {*/
+/*  color: rgba(128, 128, 128, 0.85);*/
+/*}*/
+
+::ng-deep .arrow-back-button button{
+  color: rgba(128, 128, 128, 0.85) !important;
 }
 
 

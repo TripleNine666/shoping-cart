@@ -13,6 +13,9 @@
     }
   },
   "UI": {
+    "remove-cart": {
+      "remove": "(Удалить {{cartLen}})"
+    },
     "arrow-back": {
       "back": "Назад"
     },
@@ -25,7 +28,7 @@
     "header": {
       "cart": "Корзина",
       "my-cart": "Моя Корзина",
-      "hello": "Здравствуй",
+      "hello": "Привет",
       "guest": "Гость",
       "login": "Войти"
     },
@@ -41,6 +44,9 @@
     }
   },
   "pages": {
+    "shop": {
+      "size": "Размер"
+    },
     "order": {
       "buttons": {
         "go-to-order": "Перейти к заказу",
