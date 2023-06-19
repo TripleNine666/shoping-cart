@@ -90,6 +90,9 @@
       "description": "Product Description"
     },
     "cart": {
+      "dialog": {
+        "title": "Please input your phone number"
+      },
       "empty-message": {
         "message": "Yor cart is empty, please visit our",
         "link": "shop"

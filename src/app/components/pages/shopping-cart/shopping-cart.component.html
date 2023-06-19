@@ -1,7 +1,7 @@
 
   <div class="shopping-cart-container">
     <p-dialog
-      header="Please input your phone number"
+      [header]="'pages.cart.dialog.title' | translate"
       [(visible)]="dialogVisible"
       [modal]="true"
       [style]="{ width: '80vw', height: '65vh' }"
