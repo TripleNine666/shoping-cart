@@ -47,6 +47,9 @@ export class OrderService {
       shipping,
       totalPrice
     }
+    if (!user.orderHistory) {
+      user.orderHistory = [];
+    }
     user.orderHistory.push(order);
     return this.http.put<User>(`${this.usersUrl}/${user.id}`, user).pipe(
       tap(user => {
