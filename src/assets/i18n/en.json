@@ -112,7 +112,19 @@
       "size": "Size",
       "shipping": "Shipping",
       "total": "Total price",
-      "status": "Status"
+      "status": "Status",
+      "empty-filtered-history": {
+        "start": "Order history with status:",
+        "end": "is empty!"
+      },
+      "empty-order-history": {
+        "message": "Your order history is still empty, please visit our",
+        "link": "store!"
+      },
+      "not-auth-user": {
+        "message": "You cannot view the order history until you are authorized. Please ",
+        "link": "log in!"
+      }
     }
   },
   "login": {

@@ -40,6 +40,21 @@ p-tag {
 .item-info {
   margin: 0 32px;
 }
+.img-title{
+  text-align: center !important;
+}
+::ng-deep .img-container {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+::ng-deep .img-container img {
+  height: 100%;
+}
+
+.notAuthUser {
+  text-align: center;
+}
 
 @media screen and (max-width: 715px){
   .order-container {

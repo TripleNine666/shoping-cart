@@ -47,5 +47,4 @@ export class OrderHistoryComponent implements OnInit {
         return 'danger';
     }
   }
-
 }
