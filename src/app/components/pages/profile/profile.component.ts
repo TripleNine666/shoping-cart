@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit() {
     this.userForm.patchValue(this.authService.getUser());
-    console.log(this.userForm);
     this.editMode = false; // set the initial mode to view
   }
 

@@ -11,8 +11,8 @@
 
     <ng-template pTemplate="header">
       <tr>
-        <th>{{'pages.history.image' | translate}}</th>
         <th>{{'pages.history.product-name' | translate}}</th>
+        <th class="img-title">{{'pages.history.image' | translate}}</th>
         <th>{{'pages.history.price' | translate}}</th>
         <th>{{'pages.history.amount' | translate}}</th>
         <th>{{'pages.history.size' | translate}}</th>
@@ -22,7 +22,7 @@
     <ng-template pTemplate="body" let-item>
       <tr>
         <td>{{item.product.name}}</td>
-        <td><img src="{{item.product.img}}" alt="{{item.product.name}}" width="100" class="shadow-4" /></td>
+        <td class="img-container"><img src="{{item.product.img}}" alt="{{item.product.name}}" width="100" class="shadow-4" /></td>
         <td>{{item.product.price | currency:'USD'}}</td>
         <td>{{item.count}}</td>
         <td>{{item.product.size}}</td>

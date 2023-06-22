@@ -12,14 +12,12 @@ export class CounterComponent {
 
   increment() {
     this.value++;
-    console.log(this.value)
     this.valueChange.emit(this.value);
   }
 
   decrement() {
     if (this.value > 1) {
       this.value--;
-      console.log(this.value)
       this.valueChange.emit(this.value);
     }
   }
