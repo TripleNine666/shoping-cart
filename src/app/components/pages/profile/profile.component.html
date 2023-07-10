@@ -1,55 +1,54 @@
-<app-header></app-header>
-  <p-panel [header]="'pages.profile.title' | translate" class="profile-panel">
-    <form [formGroup]="userForm" class="profile-form">
-      <div>
-
-        <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="nickname"><h3>{{'pages.profile.content.nickname' | translate }}:</h3></label>
-          <ng-container *ngIf="!editMode; else nicknameInput">
-            <p class="profile-form__content">{{nickname!.value}}</p>
-          </ng-container>
-          <ng-template #nicknameInput>
-            <input id="nickname" type="text" pInputText formControlName="nickname">
-          </ng-template>
-        </div>
-
-        <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="phoneNumber"><h3>{{'pages.profile.content.phone' | translate }}:</h3></label>
-          <ng-container *ngIf="!editMode; else phoneNumberInput">
-            <p>{{phoneNumber!.value}}</p>
-          </ng-container>
-          <ng-template #phoneNumberInput>
-            <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber">
-          </ng-template>
-        </div>
-
-        <div class="profile-form__flex">
-          <label class="profile-form__label profile-form-mr" for="address"><h3>{{'pages.profile.content.address' | translate }}:</h3></label>
-          <ng-container *ngIf="!editMode; else addressInput">
-            <p>{{address!.value}}</p>
-          </ng-container>
-          <ng-template #addressInput>
-            <input id="address" type="text" pInputText formControlName="address">
-          </ng-template>
-        </div>
-
-      </div>
-    </form>
-
+<p-panel [header]="'pages.profile.title' | translate" class="profile-panel">
+  <form [formGroup]="userForm" class="profile-form">
     <div>
 
-      <ng-container *ngIf="!editMode; else editButtons">
-        <button pButton type="button" [label]="'pages.profile.buttons.edit' | translate" (click)="toggleEditMode()"></button>
-      </ng-container>
+      <div class="profile-form__flex">
+        <label class="profile-form__label profile-form-mr" for="nickname"><h3>{{'pages.profile.content.nickname' | translate }}:</h3></label>
+        <ng-container *ngIf="!editMode; else nicknameInput">
+          <p class="profile-form__content">{{nickname!.value}}</p>
+        </ng-container>
+        <ng-template #nicknameInput>
+          <input id="nickname" type="text" pInputText formControlName="nickname">
+        </ng-template>
+      </div>
 
-      <ng-template #editButtons>
-        <div class="edit-buttons">
-          <button pButton type="button" [label]="'pages.profile.buttons.save' | translate" (click)="saveUser()"></button>
-          <button pButton type="button" [label]="'pages.profile.buttons.cancel' | translate" (click)="toggleEditMode()" class="p-button-secondary"></button>
-        </div>
-      </ng-template>
+      <div class="profile-form__flex">
+        <label class="profile-form__label profile-form-mr" for="phoneNumber"><h3>{{'pages.profile.content.phone' | translate }}:</h3></label>
+        <ng-container *ngIf="!editMode; else phoneNumberInput">
+          <p>{{phoneNumber!.value}}</p>
+        </ng-container>
+        <ng-template #phoneNumberInput>
+          <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber">
+        </ng-template>
+      </div>
+
+      <div class="profile-form__flex">
+        <label class="profile-form__label profile-form-mr" for="address"><h3>{{'pages.profile.content.address' | translate }}:</h3></label>
+        <ng-container *ngIf="!editMode; else addressInput">
+          <p>{{address!.value}}</p>
+        </ng-container>
+        <ng-template #addressInput>
+          <input id="address" type="text" pInputText formControlName="address">
+        </ng-template>
+      </div>
 
     </div>
-  </p-panel>
+  </form>
+
+  <div>
+
+    <ng-container *ngIf="!editMode; else editButtons">
+      <button pButton type="button" [label]="'pages.profile.buttons.edit' | translate" (click)="toggleEditMode()"></button>
+    </ng-container>
+
+    <ng-template #editButtons>
+      <div class="edit-buttons">
+        <button pButton type="button" [label]="'pages.profile.buttons.save' | translate" (click)="saveUser()"></button>
+        <button pButton type="button" [label]="'pages.profile.buttons.cancel' | translate" (click)="toggleEditMode()" class="p-button-secondary"></button>
+      </div>
+    </ng-template>
+
+  </div>
+</p-panel>
 
 

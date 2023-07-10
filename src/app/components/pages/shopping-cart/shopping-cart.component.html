@@ -9,7 +9,7 @@
       [resizable]="false">
       <app-login-form (loginSuccess)="onLoginSuccess()"></app-login-form>
     </p-dialog>
-    <app-header [cartLen]="productsInCart.length"></app-header>
+<!--    <app-header [cartLen]="productsInCart.length"></app-header>-->
   <!--  product list -->
     <p-toast class="toast"></p-toast>
     <div class="cart" *ngIf="productsInCart.length>0; else emptyCart">

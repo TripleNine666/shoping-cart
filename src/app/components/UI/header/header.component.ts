@@ -16,32 +16,36 @@ export class HeaderComponent implements OnInit, OnDestroy{
               public route: ActivatedRoute,
               private cartService: CartService,
   ) {}
-  @Input() cartLen: number = 0;
+  @Input() url: string = '';
 
+  // cartItems len
+  cartLen: number = 0;
 
   isAuth: boolean = false;
   user?: User;
   authSubscription?: Subscription;
   priceSubscription?: Subscription;
+  cartLenSubscription?: Subscription;
 
   totalCartPrice: number = 0;
 
   ngOnInit() {
     this.authSubscription = this.authService.getAuthState$().subscribe(authState => {
-      // обновляем свои свойства при изменении authState
       this.isAuth = authState.isAuth;
       this.user = authState.user;
     });
-    this.priceSubscription = this.cartService.totalPrice$.pipe(
-      distinctUntilChanged()
-    ).subscribe(totalPrice => {
-      this.totalCartPrice = totalPrice
-    });
+
+      this.priceSubscription = this.cartService.totalPrice$.pipe(
+        distinctUntilChanged()
+      ).subscribe(totalPrice => {
+        this.totalCartPrice = totalPrice
+      });
+      this.cartLenSubscription = this.cartService.cartItems$.subscribe(items => this.cartLen = items.length);
   }
 
   ngOnDestroy() {
-    // отписываемся от Observable
     this.authSubscription?.unsubscribe();
     this.priceSubscription?.unsubscribe();
+    this.cartLenSubscription?.unsubscribe();
   }
 }

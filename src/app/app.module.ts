@@ -44,6 +44,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { appInitializerFactory } from './app.initializer';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RemoveCartComponent } from './components/UI/remove-cart/remove-cart.component';
+import { LayoutComponent } from './components/UI/layout/layout.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -70,7 +71,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoginFormComponent,
     ProfileComponent,
     ContactsComponent,
-    RemoveCartComponent
+    RemoveCartComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,12 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent implements OnInit {
   constructor(private primengConfig: PrimeNGConfig) {
   }
+  mainPageColor: string = '';
   ngOnInit() {
     this.primengConfig.ripple = true;
+  }
+
+  onBackgroundColorChange(color: string) {
+    this.mainPageColor = color;
   }
 }
